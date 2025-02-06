@@ -7,7 +7,7 @@
 <i>CS2C</i>
 
 <div style="font-family: Monospace">
-  <h3 style="font-size: 4rem; font-weight:bold;">Group 9</h3>
+  <h3><b>Group 9</b></h3>
   <a href="https://github.com/BedddyTyr"><b>Misajon, Kynehl Scott</b></a><i> - Designer</i><br>
   <a href="https://github.com/Aarongel205"><b>Adanza, Aaron P.</b></a><i> - Frontend Developer</i><br>
   <a href="https://github.com/elRapha04"><b>Naduma, Raphael U.</b></a><i> - Backend Developer</i><br>
