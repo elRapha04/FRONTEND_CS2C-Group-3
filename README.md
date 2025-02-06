@@ -6,7 +6,7 @@
 <b>SECTION: </b><br>
 <i>CS2C</i>
 
-<div style="font-family: Monospace">
+<div>
   <h3><b>Group 9</b></h3>
   <a href="https://github.com/BedddyTyr"><b>Misajon, Kynehl Scott</b></a><i> - Designer</i><br>
   <a href="https://github.com/Aarongel205"><b>Adanza, Aaron P.</b></a><i> - Frontend Developer</i><br>
