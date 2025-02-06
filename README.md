@@ -11,6 +11,6 @@
   <a href="https://github.com/BedddyTyr"><b>Misajon, Kynehl Scott</b></a><i> - Designer</i><br>
   <a href="https://github.com/Aarongel205"><b>Adanza, Aaron P.</b></a><i> - Frontend Developer</i><br>
   <a href="https://github.com/elRapha04"><b>Naduma, Raphael U.</b></a><i> - Backend Developer</i><br>
-  <a href=""><b>Clarin, Nomeben Frietz</b></a><i> - Quality Assurance</i><br>
+  <a href="https://github.com/frietz1235"><b>Clarin, Nomeben Frietz</b></a><i> - Quality Assurance</i><br>
   <a href="https://github.com/hermosoryan"><b>Hermoso, Ryan</b></a><i> - Quality Assurance</i><br>
 </div>
