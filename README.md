@@ -14,3 +14,5 @@
   <a href="https://github.com/frietz1235"><b>Clarin, Nomeben Frietz</b></a><i> - Quality Assurance</i><br>
   <a href="https://github.com/hermosoryan"><b>Hermoso, Ryan</b></a><i> - Quality Assurance</i><br>
 </div>
+
+<a href="https://lucid.app/lucidchart/afa09e35-79d5-4105-bda8-a293e4ade07b/edit?viewport_loc=-512%2C119%2C2952%2C1379%2C0_0&invitationId=inv_a9e75ef8-fc0c-42ec-a77b-c31bcd558140">Data Models</a>
