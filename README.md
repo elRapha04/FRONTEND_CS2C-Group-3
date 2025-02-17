@@ -1,4 +1,4 @@
-# CS2C - Group 3 (<i>FRONTEND REPOSITORY</i>)
+# CS2C - Group 3 (<i>Frontend</i>)
 
 <b>INSTRUCTOR: </b><br>
 <i>Sir John Belle Villacampa</i>
