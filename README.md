@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CS2C - Group 3 (<i>Frontend</i>)
 ###### <i><a href="https://github.com/elRapha04/BACKEND_CS2C-Group-3">Link to Backend Repository</a></i>
 
@@ -24,3 +25,21 @@
   <a href="https://lucid.app/lucidchart/afa09e35-79d5-4105-bda8-a293e4ade07b/edit?viewport_loc=-512%2C119%2C2952%2C1379%2C0_0&invitationId=inv_a9e75ef8-fc0c-42ec-a77b-c31bcd558140" style="text-decoration: none;">Data Models</a><br>
   <a href="https://www.canva.com/design/DAGengM2qZE/8DFK5_8au055cVfl3ZQF5A/view?utm_content=DAGengM2qZE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hd85bbc5f64" style="text-decoration: none;">Designs</a>
 </div>
+=======
+# frontend_appdev
+
+A new Flutter project.
+
+## Getting Started
+
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
+>>>>>>> e539205 (first commit)
