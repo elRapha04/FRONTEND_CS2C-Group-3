@@ -2,15 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class MyTextField extends StatelessWidget {
-  const MyTextField({super.key});
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
+
+  const MyTextField({super.key, this.controller, this.validator});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        width: 150, // Ensures it takes full width within constrained parents
-        child: TextField(
+        width: 150,
+        child: TextFormField(
+          controller: controller,
+          validator: validator,
           style: TextStyle(
             color: Color(0xFF00B2FF),
             fontSize: 16,
@@ -29,6 +34,18 @@ class MyTextField extends StatelessWidget {
                 color: Color(0xFF00B2FF),
               ),
             ),
+            errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(15),
+              borderSide: BorderSide(
+                color: Colors.red, // Red border for error state
+              ),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(15),
+              borderSide: BorderSide(
+                color: Colors.red, // Red border for focused error state
+              ),
+            ),
           ),
         ),
       ),
@@ -37,12 +54,18 @@ class MyTextField extends StatelessWidget {
 }
 
 class EmailField extends StatelessWidget {
-  const EmailField({super.key});
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
+
+  const EmailField({super.key, this.controller, this.validator});
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 320,
-      child: TextField(
+      width: 324,
+      child: TextFormField(
+        controller: controller,
+        validator: validator,
         style: TextStyle(
           color: Color(0xFF00B2FF),
         ),
@@ -60,6 +83,18 @@ class EmailField extends StatelessWidget {
               color: Color(0xFF00B2FF),
             ),
           ),
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: BorderSide(
+              color: Colors.red, // Red border for error state
+            ),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: BorderSide(
+              color: Colors.red, // Red border for focused error state
+            ),
+          ),
         ),
       ),
     );
@@ -67,12 +102,18 @@ class EmailField extends StatelessWidget {
 }
 
 class PasswordField extends StatelessWidget {
-  const PasswordField({super.key});
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
+
+  const PasswordField({super.key, this.controller, this.validator});
+
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 320,
-      child: TextField(
+      child: TextFormField(
+        controller: controller,
+        validator: validator,
         style: TextStyle(
           color: Color(0xFF00B2FF),
         ),
@@ -91,6 +132,18 @@ class PasswordField extends StatelessWidget {
               color: Color(0xFF00B2FF),
             ),
           ),
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: BorderSide(
+              color: Colors.red, // Red border for error state
+            ),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: BorderSide(
+              color: Colors.red, // Red border for focused error state
+            ),
+          ),
         ),
       ),
     );
@@ -98,17 +151,22 @@ class PasswordField extends StatelessWidget {
 }
 
 class PhoneField extends StatelessWidget {
-  const PhoneField({super.key});
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
+
+  const PhoneField({super.key, this.controller, this.validator});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 320,
-      child: TextField(
+      child: TextFormField(
+        controller: controller,
+        validator: validator,
         style: TextStyle(
           color: Color(0xFF00B2FF),
         ),
-        keyboardType: TextInputType.phone, // Use phone keyboard type
+        keyboardType: TextInputType.phone,
         inputFormatters: [
           FilteringTextInputFormatter.digitsOnly, // Allow only digits
         ],
@@ -123,6 +181,18 @@ class PhoneField extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
             borderSide: BorderSide(
               color: Color(0xFF00B2FF),
+            ),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: BorderSide(
+              color: Colors.red, // Red border for error state
+            ),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: BorderSide(
+              color: Colors.red, // Red border for focused error state
             ),
           ),
         ),
