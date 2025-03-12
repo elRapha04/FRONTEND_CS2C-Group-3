@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_appdev/pages/Home.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -28,13 +29,7 @@ class _LoginState extends State<Login> {
         body: Container(
           width: screenWidth,
           height: screenHeight,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Colors.white, Colors.blue],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-          ),
+          color: Color(0xFF00B2FF),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -43,9 +38,10 @@ class _LoginState extends State<Login> {
                 Text(
                   'Login',
                   style: TextStyle(
-                    fontSize: screenWidth * 0.08, // Responsive font size
+                    fontSize: screenWidth * 0.15, // Responsive font size
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF00B2FF),
+                    color: Colors.white,
+                    fontFamily: 'JosefinSlab',
                   ),
                 ),
                 SizedBox(height: screenHeight * 0.05),
@@ -63,6 +59,7 @@ class _LoginState extends State<Login> {
                             filled: true,
                             fillColor: Colors.white,
                             hintText: 'Email',
+                            hintStyle: TextStyle(fontFamily: 'JosefinSlab', fontWeight: FontWeight.bold),
                             prefixIcon:
                             Icon(Icons.email, color: Color(0xFF00B2FF)),
                             enabledBorder: OutlineInputBorder(
@@ -94,6 +91,10 @@ class _LoginState extends State<Login> {
                             filled: true,
                             fillColor: Colors.white,
                             hintText: 'Password',
+                            hintStyle: TextStyle(
+                              fontFamily: 'JosefinSlab',
+                              fontWeight: FontWeight.bold,
+                            ),
                             prefixIcon:
                             Icon(Icons.lock, color: Color(0xFF00B2FF)),
                             suffixIcon: IconButton(
@@ -136,6 +137,7 @@ class _LoginState extends State<Login> {
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Color(0xFF00B2FF),
+                              side: BorderSide(color: Colors.white, width: 3),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),
@@ -143,6 +145,10 @@ class _LoginState extends State<Login> {
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {
                                 // Perform login action
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => Home()),
+                                );
                                 print('Email: ${_emailController.text}');
                                 print('Password: ${_passwordController.text}');
                               }
@@ -153,7 +159,8 @@ class _LoginState extends State<Login> {
                                 color: Colors.white,
                                 fontSize:
                                 screenWidth * 0.05, // Responsive font size
-                                fontWeight: FontWeight.w400,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'JosefinSlab',
                               ),
                             ),
                           ),
@@ -177,10 +184,10 @@ class _LoginState extends State<Login> {
                                 child: Text(
                                   'Or login with',
                                   style: TextStyle(
-                                    fontSize: screenWidth *
-                                        0.04, // Responsive font size
-                                    fontWeight: FontWeight.w400,
+                                    fontSize: screenWidth * 0.04,// Responsive font size
+                                    fontWeight: FontWeight.bold,
                                     color: Colors.white,
+                                    fontFamily: 'JosefinSlab',
                                   ),
                                 ),
                               ),
@@ -198,6 +205,7 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 SizedBox(height: screenHeight * 0.1),
+
                 GestureDetector(
                   onTap: () {
                     Navigator.pushNamed(context, '/sign_up');
@@ -206,7 +214,8 @@ class _LoginState extends State<Login> {
                     "Don't have an account?",
                     style: TextStyle(
                       fontSize: screenWidth * 0.04, // Responsive font size
-                      fontWeight: FontWeight.w400,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'JosefinSlab',
                       color: Colors.white,
                     ),
                   ),

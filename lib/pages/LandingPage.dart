@@ -8,11 +8,7 @@ class LandingPage extends StatelessWidget {
       child: Scaffold(
         body: Container(
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Colors.white, Colors.blue],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
+            color: Color(0xFF00B2FF),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -21,16 +17,25 @@ class LandingPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  CircleAvatar(
+                    radius: 100,
+                      child: ClipOval(
+                          child: Image(image: AssetImage('assets/logo.png', ))
+                      )
+                  ),
+                  SizedBox(height: 90,),
                   Text(
                     'Get started',
                     style: TextStyle(
                         fontSize: 60,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white),
+                        color: Colors.white,
+                      fontFamily: 'JosefinSlab',
+                    ),
                   ),
                   Text(
                     'Find your ideal rental today!',
-                    style: TextStyle(color: Colors.white, fontSize: 13),
+                    style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold, fontFamily: 'JosefinSlab',),
                   ),
                   SizedBox(
                     height: 30,
@@ -45,6 +50,12 @@ class LandingPage extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         color: Colors.white,
+                        boxShadow: [BoxShadow(
+                          color: Color(0x3b3b3b).withOpacity(0.44),
+                          offset: Offset(0, 7),
+                          blurRadius: 4,
+                          spreadRadius: -2,
+                        )],
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -52,8 +63,9 @@ class LandingPage extends StatelessWidget {
                           Text('Login',
                               style: TextStyle(
                                 fontSize: 24,
-                                color: Colors.blue[300],
-                                fontWeight: FontWeight.w400,
+                                color: Color(0xFF00B2FF),
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'JosefinSlab',
                               )),
                         ],
                       ),
@@ -72,6 +84,12 @@ class LandingPage extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         color: Colors.white,
+                        boxShadow: [BoxShadow(
+                          color: Color(0x3b3b3b).withOpacity(0.44),
+                          offset: Offset(0, 7),
+                          blurRadius: 4,
+                          spreadRadius: -2,
+                        )],
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -80,15 +98,16 @@ class LandingPage extends StatelessWidget {
                           Text('Create an account',
                               style: TextStyle(
                                 fontSize: 24,
-                                color: Colors.blue[300],
-                                fontWeight: FontWeight.w400,
+                                color: Color(0xFF00B2FF),
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'JosefinSlab',
                               )),
                         ],
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 80,
+                    height: 120,
                   ),
                 ],
               ),

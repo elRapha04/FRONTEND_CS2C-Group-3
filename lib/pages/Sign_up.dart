@@ -2,8 +2,36 @@ import 'package:flutter/material.dart';
 import 'package:frontend_appdev/components/text_field.dart';
 import 'package:frontend_appdev/components/Button.dart';
 
-class SignUp extends StatelessWidget {
+class SignUp extends StatefulWidget {
   const SignUp({super.key});
+
+  @override
+  _SignUpState createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
+  // Form key for validation
+  final _formKey = GlobalKey<FormState>();
+
+  // Controllers for text fields
+  final TextEditingController _firstNameController = TextEditingController();
+  final TextEditingController _lastNameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+
+  @override
+  void dispose() {
+    // Dispose controllers to prevent memory leaks
+    _firstNameController.dispose();
+    _lastNameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    _confirmPasswordController.dispose();
+    _phoneController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -11,32 +39,18 @@ class SignUp extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
-    // Form key for validation
-    final _formKey = GlobalKey<FormState>();
-
-    // Controllers for text fields
-    final TextEditingController _firstNameController = TextEditingController();
-    final TextEditingController _lastNameController = TextEditingController();
-    final TextEditingController _emailController = TextEditingController();
-    final TextEditingController _passwordController = TextEditingController();
-    final TextEditingController _confirmPasswordController =
-    TextEditingController();
-    final TextEditingController _phoneController = TextEditingController();
-
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
-          // Add padding to avoid overlap with the keyboard
-          padding:
-          EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
           child: Padding(
-            padding: EdgeInsets.all(screenWidth * 0.04), // Responsive padding
+            padding: EdgeInsets.all(screenWidth * 0.04),
             child: Form(
               key: _formKey,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  SizedBox(height: screenHeight * 0.03), // Responsive spacing
+                  SizedBox(height: screenHeight * 0.03),
                   // First Name and Last Name Row
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -49,10 +63,10 @@ class SignUp extends StatelessWidget {
                             Text(
                               'First Name',
                               style: TextStyle(
-                                fontSize:
-                                screenWidth * 0.06, // Responsive font size
-                                fontWeight: FontWeight.w400,
+                                fontSize: screenWidth * 0.06,
+                                fontWeight: FontWeight.bold,
                                 color: const Color(0xFF00B2FF),
+                                fontFamily: 'JosefinSlab',
                               ),
                             ),
                             MyTextField(
@@ -67,7 +81,7 @@ class SignUp extends StatelessWidget {
                           ],
                         ),
                       ),
-                      SizedBox(width: screenWidth * 0.1), // Responsive spacing
+                      SizedBox(width: screenWidth * 0.1),
                       Flexible(
                         flex: 1,
                         child: Column(
@@ -76,10 +90,10 @@ class SignUp extends StatelessWidget {
                             Text(
                               'Last Name',
                               style: TextStyle(
-                                fontSize:
-                                screenWidth * 0.06, // Responsive font size
-                                fontWeight: FontWeight.w400,
+                                fontSize: screenWidth * 0.06,
+                                fontWeight: FontWeight.bold,
                                 color: const Color(0xFF00B2FF),
+                                fontFamily: 'JosefinSlab',
                               ),
                             ),
                             MyTextField(
@@ -96,7 +110,7 @@ class SignUp extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: screenHeight * 0.03), // Responsive spacing
+                  SizedBox(height: screenHeight * 0.03),
                   // Email Field
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -104,9 +118,10 @@ class SignUp extends StatelessWidget {
                       Text(
                         'Enter email',
                         style: TextStyle(
-                          fontSize: screenWidth * 0.06, // Responsive font size
-                          fontWeight: FontWeight.w400,
+                          fontSize: screenWidth * 0.06,
+                          fontWeight: FontWeight.bold,
                           color: const Color(0xFF00B2FF),
+                          fontFamily: 'JosefinSlab',
                         ),
                       ),
                       EmailField(
@@ -115,8 +130,7 @@ class SignUp extends StatelessWidget {
                           if (value == null || value.isEmpty) {
                             return 'Please enter your email';
                           }
-                          if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
-                              .hasMatch(value)) {
+                          if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
                             return 'Please enter a valid email';
                           }
                           return null;
@@ -124,7 +138,7 @@ class SignUp extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: screenHeight * 0.03), // Responsive spacing
+                  SizedBox(height: screenHeight * 0.03),
                   // Create Password Field
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -132,9 +146,10 @@ class SignUp extends StatelessWidget {
                       Text(
                         'Create Password',
                         style: TextStyle(
-                          fontSize: screenWidth * 0.06, // Responsive font size
-                          fontWeight: FontWeight.w400,
+                          fontSize: screenWidth * 0.06,
+                          fontWeight: FontWeight.bold,
                           color: const Color(0xFF00B2FF),
+                          fontFamily: 'JosefinSlab',
                         ),
                       ),
                       PasswordField(
@@ -151,7 +166,7 @@ class SignUp extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: screenHeight * 0.03), // Responsive spacing
+                  SizedBox(height: screenHeight * 0.03),
                   // Confirm Password Field
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -159,9 +174,10 @@ class SignUp extends StatelessWidget {
                       Text(
                         'Confirm Password',
                         style: TextStyle(
-                          fontSize: screenWidth * 0.06, // Responsive font size
-                          fontWeight: FontWeight.w400,
+                          fontSize: screenWidth * 0.06,
+                          fontWeight: FontWeight.bold,
                           color: const Color(0xFF00B2FF),
+                          fontFamily: 'JosefinSlab',
                         ),
                       ),
                       PasswordField(
@@ -178,7 +194,7 @@ class SignUp extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: screenHeight * 0.03), // Responsive spacing
+                  SizedBox(height: screenHeight * 0.03),
                   // Phone Field
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -186,9 +202,10 @@ class SignUp extends StatelessWidget {
                       Text(
                         'Phone',
                         style: TextStyle(
-                          fontSize: screenWidth * 0.06, // Responsive font size
-                          fontWeight: FontWeight.w400,
+                          fontSize: screenWidth * 0.06,
+                          fontWeight: FontWeight.bold,
                           color: const Color(0xFF00B2FF),
+                          fontFamily: 'JosefinSlab',
                         ),
                       ),
                       PhoneField(
@@ -196,13 +213,15 @@ class SignUp extends StatelessWidget {
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return "Enter your phone";
+                          }else if(value.length != 11){
+                            return "Phone number must be exactly 11 digits";
                           }
                           return null;
                         },
                       ),
                     ],
                   ),
-                  SizedBox(height: screenHeight * 0.03), // Responsive spacing
+                  SizedBox(height: screenHeight * 0.03),
                   // Sign Up Button
                   ButtonSignUp(
                     onPressed: () {
@@ -214,7 +233,7 @@ class SignUp extends StatelessWidget {
                       }
                     },
                   ),
-                  SizedBox(height: screenHeight * 0.03), // Responsive spacing
+                  SizedBox(height: screenHeight * 0.03),
                   // Already have an account? Text
                   GestureDetector(
                     onTap: () {
@@ -223,8 +242,10 @@ class SignUp extends StatelessWidget {
                     child: Text(
                       'Already have an account?',
                       style: TextStyle(
-                        fontSize: screenWidth * 0.04, // Responsive font size
+                        fontSize: screenWidth * 0.04,
                         color: const Color(0xFF00B2FF),
+                        fontFamily: 'JosefinSlab',
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
