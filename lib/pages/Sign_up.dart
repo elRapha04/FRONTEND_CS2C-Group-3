@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert'; // For jsonEncode
 import 'package:frontend_appdev/components/text_field.dart';
 import 'package:frontend_appdev/components/Button.dart';
 
@@ -23,12 +25,48 @@ class SignUp extends StatelessWidget {
     TextEditingController();
     final TextEditingController _phoneController = TextEditingController();
 
+    Future<void> _signUp() async {
+      if (_formKey.currentState!.validate()) {
+        // Prepare the data to send
+        final Map<String, dynamic> data = {
+          'first_name': _firstNameController.text,
+          'last_name': _lastNameController.text,
+          'email': _emailController.text,
+          'password': _passwordController.text,
+          'phone_number': _phoneController.text,
+        };
+
+        // Make the HTTP POST request
+        final response = await http.post(
+          Uri.parse('http://127.0.0.1:8000/api/accounts/signup/'),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: jsonEncode(data),
+        );
+
+        // Handle the response
+        if (response.statusCode == 201) {
+          // Sign up successful
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Sign Up Successful')),
+          );
+          // Optionally navigate to another page
+          Navigator.pushNamed(context, '/login');
+        } else {
+          // Sign up failed
+          final responseData = jsonDecode(response.body);
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(responseData['error'] ?? 'Sign Up Failed')),
+          );
+        }
+      }
+    }
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
-          // Add padding to avoid overlap with the keyboard
-          padding:
-          EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
           child: Padding(
             padding: EdgeInsets.all(screenWidth * 0.04), // Responsive padding
             child: Form(

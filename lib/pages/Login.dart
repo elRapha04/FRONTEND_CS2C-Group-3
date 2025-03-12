@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert'; // For jsonEncode
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -16,6 +18,42 @@ class _LoginState extends State<Login> {
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
+  }
+
+  Future<void> _login() async {
+    if (_formKey.currentState!.validate()) {
+      // Prepare the data to send
+      final Map<String, dynamic> data = {
+        'email': _emailController.text,
+        'password': _passwordController.text,
+      };
+
+      // Make the HTTP POST request
+      final response = await http.post(
+        Uri.parse('http://127.0.0.1:8000/api/accounts/login/'),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: jsonEncode(data),
+      );
+
+      // Handle the response
+      if (response.statusCode == 200) {
+        // Login successful
+        final responseData = jsonDecode(response.body);
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Login Successful: ${responseData['message']}')),
+        );
+        // Navigate to the home screen or dashboard
+        Navigator.pushReplacementNamed(context, '/home'); // Adjust the route as needed
+      } else {
+        // Login failed
+        final responseData = jsonDecode(response.body);
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(responseData['error'] ?? 'Login Failed')),
+        );
+      }
+    }
   }
 
   @override
