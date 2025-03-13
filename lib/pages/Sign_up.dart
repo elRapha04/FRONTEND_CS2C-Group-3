@@ -47,14 +47,11 @@ class SignUp extends StatelessWidget {
 
         // Handle the response
         if (response.statusCode == 201) {
-          // Sign up successful
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text('Sign Up Successful')),
           );
-          // Optionally navigate to another page
-          Navigator.pushNamed(context, '/login');
+          Navigator.pushNamed(context, '/login'); // Navigate to login page
         } else {
-          // Sign up failed
           final responseData = jsonDecode(response.body);
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(responseData['error'] ?? 'Sign Up Failed')),
@@ -62,6 +59,7 @@ class SignUp extends StatelessWidget {
         }
       }
     }
+
 
     return SafeArea(
       child: Scaffold(

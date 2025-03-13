@@ -4,6 +4,8 @@ import 'dart:convert'; // For jsonEncode
 
 class Login extends StatefulWidget {
   const Login({super.key});
+
+  @override
   _LoginState createState() => _LoginState();
 }
 
@@ -24,33 +26,38 @@ class _LoginState extends State<Login> {
     if (_formKey.currentState!.validate()) {
       // Prepare the data to send
       final Map<String, dynamic> data = {
-        'email': _emailController.text,
+        'email': _emailController.text.trim(),
         'password': _passwordController.text,
       };
 
-      // Make the HTTP POST request
-      final response = await http.post(
-        Uri.parse('http://127.0.0.1:8000/api/accounts/login/'),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: jsonEncode(data),
-      );
-
-      // Handle the response
-      if (response.statusCode == 200) {
-        // Login successful
-        final responseData = jsonDecode(response.body);
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Login Successful: ${responseData['message']}')),
+      try {
+        // Make the HTTP POST request
+        final response = await http.post(
+          Uri.parse('http://127.0.0.1:8000/api/accounts/login/'),
+          headers: {'Content-Type': 'application/json'},
+          body: jsonEncode(data),
         );
-        // Navigate to the home screen or dashboard
-        Navigator.pushReplacementNamed(context, '/home'); // Adjust the route as needed
-      } else {
-        // Login failed
-        final responseData = jsonDecode(response.body);
+
+        if (response.statusCode == 200) {
+          // Login successful
+          final responseData = jsonDecode(response.body);
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Login Successful: ${responseData['message']}')),
+          );
+
+          // Navigate to the home screen or dashboard
+          Navigator.pushReplacementNamed(context, '/home');
+        } else {
+          // Login failed
+          final responseData = jsonDecode(response.body);
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(responseData['error'] ?? 'Login Failed')),
+          );
+        }
+      } catch (error) {
+        // Handle network errors
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(responseData['error'] ?? 'Login Failed')),
+          const SnackBar(content: Text('Network error. Please try again.')),
         );
       }
     }
@@ -66,7 +73,7 @@ class _LoginState extends State<Login> {
         body: Container(
           width: screenWidth,
           height: screenHeight,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [Colors.white, Colors.blue],
               begin: Alignment.topCenter,
@@ -81,7 +88,7 @@ class _LoginState extends State<Login> {
                 Text(
                   'Login',
                   style: TextStyle(
-                    fontSize: screenWidth * 0.08, // Responsive font size
+                    fontSize: screenWidth * 0.08,
                     fontWeight: FontWeight.bold,
                     color: Color(0xFF00B2FF),
                   ),
@@ -90,8 +97,7 @@ class _LoginState extends State<Login> {
                 Form(
                   key: _formKey,
                   child: Padding(
-                    padding:
-                    EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
+                    padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
                     child: Column(
                       children: [
                         TextFormField(
@@ -101,23 +107,21 @@ class _LoginState extends State<Login> {
                             filled: true,
                             fillColor: Colors.white,
                             hintText: 'Email',
-                            prefixIcon:
-                            Icon(Icons.email, color: Color(0xFF00B2FF)),
+                            prefixIcon: const Icon(Icons.email, color: Color(0xFF00B2FF)),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(color: Color(0xFF00B2FF)),
+                              borderSide: const BorderSide(color: Color(0xFF00B2FF)),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(color: Color(0xFF00B2FF)),
+                              borderSide: const BorderSide(color: Color(0xFF00B2FF)),
                             ),
                           ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Please enter your email';
                             }
-                            if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
-                                .hasMatch(value)) {
+                            if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
                               return 'Please enter a valid email';
                             }
                             return null;
@@ -132,14 +136,11 @@ class _LoginState extends State<Login> {
                             filled: true,
                             fillColor: Colors.white,
                             hintText: 'Password',
-                            prefixIcon:
-                            Icon(Icons.lock, color: Color(0xFF00B2FF)),
+                            prefixIcon: const Icon(Icons.lock, color: Color(0xFF00B2FF)),
                             suffixIcon: IconButton(
                               icon: Icon(
-                                _isPasswordVisible
-                                    ? Icons.visibility
-                                    : Icons.visibility_off,
-                                color: Color(0xFF00B2FF),
+                                _isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                                color: const Color(0xFF00B2FF),
                               ),
                               onPressed: () {
                                 setState(() {
@@ -149,11 +150,11 @@ class _LoginState extends State<Login> {
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(color: Color(0xFF00B2FF)),
+                              borderSide: const BorderSide(color: Color(0xFF00B2FF)),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(color: Color(0xFF00B2FF)),
+                              borderSide: const BorderSide(color: Color(0xFF00B2FF)),
                             ),
                           ),
                           validator: (value) {
@@ -168,29 +169,21 @@ class _LoginState extends State<Login> {
                         ),
                         SizedBox(height: screenHeight * 0.03),
                         SizedBox(
-                          width: screenWidth * 0.8, // Responsive button width
-                          height:
-                          screenHeight * 0.06, // Responsive button height
+                          width: screenWidth * 0.8,
+                          height: screenHeight * 0.06,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xFF00B2FF),
+                              backgroundColor: const Color(0xFF00B2FF),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),
                             ),
-                            onPressed: () {
-                              if (_formKey.currentState!.validate()) {
-                                // Perform login action
-                                print('Email: ${_emailController.text}');
-                                print('Password: ${_passwordController.text}');
-                              }
-                            },
+                            onPressed: _login, // Call login function
                             child: Text(
                               'Login',
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize:
-                                screenWidth * 0.05, // Responsive font size
+                                fontSize: screenWidth * 0.05,
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
@@ -198,35 +191,26 @@ class _LoginState extends State<Login> {
                         ),
                         SizedBox(height: screenHeight * 0.03),
                         Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: screenWidth * 0.05),
+                          padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Expanded(
-                                child: Divider(
-                                  thickness: 1,
-                                  color: Colors.white,
-                                ),
+                              const Expanded(
+                                child: Divider(thickness: 1, color: Colors.white),
                               ),
                               Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: screenWidth * 0.02),
+                                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.02),
                                 child: Text(
                                   'Or login with',
                                   style: TextStyle(
-                                    fontSize: screenWidth *
-                                        0.04, // Responsive font size
+                                    fontSize: screenWidth * 0.04,
                                     fontWeight: FontWeight.w400,
                                     color: Colors.white,
                                   ),
                                 ),
                               ),
-                              Expanded(
-                                child: Divider(
-                                  thickness: 1,
-                                  color: Colors.white,
-                                ),
+                              const Expanded(
+                                child: Divider(thickness: 1, color: Colors.white),
                               ),
                             ],
                           ),
@@ -243,7 +227,7 @@ class _LoginState extends State<Login> {
                   child: Text(
                     "Don't have an account?",
                     style: TextStyle(
-                      fontSize: screenWidth * 0.04, // Responsive font size
+                      fontSize: screenWidth * 0.04,
                       fontWeight: FontWeight.w400,
                       color: Colors.white,
                     ),
