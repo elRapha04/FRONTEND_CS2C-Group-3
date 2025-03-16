@@ -18,7 +18,8 @@ class _SignUpState extends State<SignUp> {
   final TextEditingController _lastNameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
 
   Future<void> _signUp() async {
@@ -44,9 +45,9 @@ class _SignUpState extends State<SignUp> {
         print("Response body: ${response.body}");
 
         if (response.statusCode == 201) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Sign Up Successful')),
-          );
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(const SnackBar(content: Text('Sign Up Successful')));
           Navigator.pushNamed(context, '/login');
         } else {
           final responseData = jsonDecode(response.body);
@@ -60,7 +61,6 @@ class _SignUpState extends State<SignUp> {
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -69,7 +69,9 @@ class _SignUpState extends State<SignUp> {
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
-          padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom,
+          ),
           child: Padding(
             padding: EdgeInsets.all(screenWidth * 0.04),
             child: Form(
@@ -92,13 +94,16 @@ class _SignUpState extends State<SignUp> {
                                 fontSize: screenWidth * 0.06,
                                 fontWeight: FontWeight.w400,
                                 color: const Color(0xFF00B2FF),
+                                fontFamily: 'JosefinSlab',
                               ),
                             ),
                             MyTextField(
                               controller: _firstNameController,
-                              validator: (value) => value == null || value.isEmpty
-                                  ? 'Please enter your first name'
-                                  : null,
+                              validator:
+                                  (value) =>
+                                      value == null || value.isEmpty
+                                          ? 'Please enter your first name'
+                                          : null,
                             ),
                           ],
                         ),
@@ -115,13 +120,16 @@ class _SignUpState extends State<SignUp> {
                                 fontSize: screenWidth * 0.06,
                                 fontWeight: FontWeight.w400,
                                 color: const Color(0xFF00B2FF),
+                                fontFamily: 'JosefinSlab',
                               ),
                             ),
                             MyTextField(
                               controller: _lastNameController,
-                              validator: (value) => value == null || value.isEmpty
-                                  ? 'Please enter your last name'
-                                  : null,
+                              validator:
+                                  (value) =>
+                                      value == null || value.isEmpty
+                                          ? 'Please enter your last name'
+                                          : null,
                             ),
                           ],
                         ),
@@ -138,13 +146,17 @@ class _SignUpState extends State<SignUp> {
                           fontSize: screenWidth * 0.06,
                           fontWeight: FontWeight.w400,
                           color: const Color(0xFF00B2FF),
+                          fontFamily: 'JosefinSlab',
                         ),
                       ),
                       EmailField(
                         controller: _emailController,
                         validator: (value) {
-                          if (value == null || value.isEmpty) return 'Please enter your email';
-                          if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
+                          if (value == null || value.isEmpty)
+                            return 'Please enter your email';
+                          if (!RegExp(
+                            r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
+                          ).hasMatch(value)) {
                             return 'Please enter a valid email';
                           }
                           return null;
@@ -162,13 +174,16 @@ class _SignUpState extends State<SignUp> {
                           fontSize: screenWidth * 0.06,
                           fontWeight: FontWeight.w400,
                           color: const Color(0xFF00B2FF),
+                          fontFamily: 'JosefinSlab',
                         ),
                       ),
                       PasswordField(
                         controller: _passwordController,
                         validator: (value) {
-                          if (value == null || value.isEmpty) return 'Please enter a password';
-                          if (value.length < 6) return 'Password must be at least 6 characters';
+                          if (value == null || value.isEmpty)
+                            return 'Please enter a password';
+                          if (value.length < 6)
+                            return 'Password must be at least 6 characters';
                           return null;
                         },
                       ),
@@ -184,13 +199,16 @@ class _SignUpState extends State<SignUp> {
                           fontSize: screenWidth * 0.06,
                           fontWeight: FontWeight.w400,
                           color: const Color(0xFF00B2FF),
+                          fontFamily: 'JosefinSlab',
                         ),
                       ),
                       PasswordField(
                         controller: _confirmPasswordController,
                         validator: (value) {
-                          if (value == null || value.isEmpty) return 'Please confirm your password';
-                          if (value != _passwordController.text) return 'Passwords do not match';
+                          if (value == null || value.isEmpty)
+                            return 'Please confirm your password';
+                          if (value != _passwordController.text)
+                            return 'Passwords do not match';
                           return null;
                         },
                       ),
@@ -206,11 +224,16 @@ class _SignUpState extends State<SignUp> {
                           fontSize: screenWidth * 0.06,
                           fontWeight: FontWeight.w400,
                           color: const Color(0xFF00B2FF),
+                          fontFamily: 'JosefinSlab',
                         ),
                       ),
                       PhoneField(
                         controller: _phoneController,
-                        validator: (value) => value == null || value.isEmpty ? 'Enter your phone' : null,
+                        validator:
+                            (value) =>
+                                value == null || value.isEmpty
+                                    ? 'Enter your phone'
+                                    : null,
                       ),
                     ],
                   ),
@@ -230,6 +253,8 @@ class _SignUpState extends State<SignUp> {
                       style: TextStyle(
                         fontSize: screenWidth * 0.04,
                         color: const Color(0xFF00B2FF),
+                        fontFamily: 'JosefinSlab',
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),

@@ -42,7 +42,9 @@ class _LoginState extends State<Login> {
           // Login successful
           final responseData = jsonDecode(response.body);
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Login Successful: ${responseData['message']}')),
+            SnackBar(
+              content: Text('Login Successful: ${responseData['message']}'),
+            ),
           );
 
           // Navigate to the home screen or dashboard
@@ -90,14 +92,17 @@ class _LoginState extends State<Login> {
                   style: TextStyle(
                     fontSize: screenWidth * 0.08,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF00B2FF),
+                    color: Colors.white,
+                    fontFamily: 'JosefinSlab',
                   ),
                 ),
                 SizedBox(height: screenHeight * 0.05),
                 Form(
                   key: _formKey,
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.05,
+                    ),
                     child: Column(
                       children: [
                         TextFormField(
@@ -107,21 +112,30 @@ class _LoginState extends State<Login> {
                             filled: true,
                             fillColor: Colors.white,
                             hintText: 'Email',
-                            prefixIcon: const Icon(Icons.email, color: Color(0xFF00B2FF)),
+                            prefixIcon: const Icon(
+                              Icons.email,
+                              color: Color(0xFF00B2FF),
+                            ),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
-                              borderSide: const BorderSide(color: Color(0xFF00B2FF)),
+                              borderSide: const BorderSide(
+                                color: Color(0xFF00B2FF),
+                              ),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
-                              borderSide: const BorderSide(color: Color(0xFF00B2FF)),
+                              borderSide: const BorderSide(
+                                color: Color(0xFF00B2FF),
+                              ),
                             ),
                           ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Please enter your email';
                             }
-                            if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
+                            if (!RegExp(
+                              r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
+                            ).hasMatch(value)) {
                               return 'Please enter a valid email';
                             }
                             return null;
@@ -136,10 +150,15 @@ class _LoginState extends State<Login> {
                             filled: true,
                             fillColor: Colors.white,
                             hintText: 'Password',
-                            prefixIcon: const Icon(Icons.lock, color: Color(0xFF00B2FF)),
+                            prefixIcon: const Icon(
+                              Icons.lock,
+                              color: Color(0xFF00B2FF),
+                            ),
                             suffixIcon: IconButton(
                               icon: Icon(
-                                _isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                                _isPasswordVisible
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
                                 color: const Color(0xFF00B2FF),
                               ),
                               onPressed: () {
@@ -150,11 +169,15 @@ class _LoginState extends State<Login> {
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
-                              borderSide: const BorderSide(color: Color(0xFF00B2FF)),
+                              borderSide: const BorderSide(
+                                color: Color(0xFF00B2FF),
+                              ),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
-                              borderSide: const BorderSide(color: Color(0xFF00B2FF)),
+                              borderSide: const BorderSide(
+                                color: Color(0xFF00B2FF),
+                              ),
                             ),
                           ),
                           validator: (value) {
@@ -191,26 +214,37 @@ class _LoginState extends State<Login> {
                         ),
                         SizedBox(height: screenHeight * 0.03),
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
+                          padding: EdgeInsets.symmetric(
+                            horizontal: screenWidth * 0.05,
+                          ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               const Expanded(
-                                child: Divider(thickness: 1, color: Colors.white),
+                                child: Divider(
+                                  thickness: 1,
+                                  color: Colors.white,
+                                ),
                               ),
                               Padding(
-                                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.02),
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: screenWidth * 0.02,
+                                ),
                                 child: Text(
                                   'Or login with',
                                   style: TextStyle(
                                     fontSize: screenWidth * 0.04,
                                     fontWeight: FontWeight.w400,
                                     color: Colors.white,
+                                    fontFamily: 'JosefinSlab',
                                   ),
                                 ),
                               ),
                               const Expanded(
-                                child: Divider(thickness: 1, color: Colors.white),
+                                child: Divider(
+                                  thickness: 1,
+                                  color: Colors.white,
+                                ),
                               ),
                             ],
                           ),
@@ -220,6 +254,7 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 SizedBox(height: screenHeight * 0.1),
+
                 GestureDetector(
                   onTap: () {
                     Navigator.pushNamed(context, '/sign_up');

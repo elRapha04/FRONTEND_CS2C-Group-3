@@ -21,7 +21,7 @@ class ButtonSignUp extends StatelessWidget {
         child: Text(
           'Create Account',
           style: TextStyle(
-              color: Colors.white, fontSize: 24, fontWeight: FontWeight.w400),
+              color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold, fontFamily: 'JosefinSlab'),
         ),
       ),
     );

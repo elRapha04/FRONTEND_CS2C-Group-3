@@ -10,6 +10,6 @@ void main() => runApp(MaterialApp(
   routes: {
     '/landing': (context) => LandingPage(),
     '/login': (context) => Login(),
-    '/sign_up': (context) => SignUp()
+    '/sign_up': (context) => SignUp(),
   },
 ));
