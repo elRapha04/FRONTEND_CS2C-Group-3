@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:frontend_appdev/pages/Login.dart';
-import 'pages/Login.dart';
 import 'pages/LandingPage.dart';
+import 'pages/Login.dart';
+import 'pages/Home.dart';
 import 'pages/Sign_up.dart';
 
 void main() => runApp(MaterialApp(
@@ -11,5 +12,6 @@ void main() => runApp(MaterialApp(
     '/landing': (context) => LandingPage(),
     '/login': (context) => Login(),
     '/sign_up': (context) => SignUp(),
+    '/home': (context) => Home(),
   },
 ));

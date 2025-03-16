@@ -39,7 +39,6 @@ class _LoginState extends State<Login> {
         );
 
         if (response.statusCode == 200) {
-          // Login successful
           final responseData = jsonDecode(response.body);
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
@@ -47,8 +46,10 @@ class _LoginState extends State<Login> {
             ),
           );
 
-          // Navigate to the home screen or dashboard
-          Navigator.pushNamed(context, '/home');
+          if (!context.mounted) return; // Prevent navigation if widget is unmounted
+
+        // Navigate to the home screen or dashboard
+          Navigator.pushReplacementNamed(context, '/home');
         } else {
           // Login failed
           final responseData = jsonDecode(response.body);
