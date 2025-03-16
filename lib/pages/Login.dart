@@ -33,7 +33,7 @@ class _LoginState extends State<Login> {
       try {
         // Make the HTTP POST request
         final response = await http.post(
-          Uri.parse('http://192.168.1.32/:8000/api/accounts/login/'),
+          Uri.parse('http://192.168.1.32:8000/api/accounts/login/'),
           headers: {'Content-Type': 'application/json'},
           body: jsonEncode(data),
         );
@@ -43,12 +43,12 @@ class _LoginState extends State<Login> {
           final responseData = jsonDecode(response.body);
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('Login Successful: ${responseData['message']}'),
+              content: Text('Login Successful'),
             ),
           );
 
           // Navigate to the home screen or dashboard
-          Navigator.pushReplacementNamed(context, '/home');
+          Navigator.pushNamed(context, '/home');
         } else {
           // Login failed
           final responseData = jsonDecode(response.body);
