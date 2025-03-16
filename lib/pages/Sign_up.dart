@@ -38,7 +38,7 @@ class SignUp extends StatelessWidget {
 
         // Make the HTTP POST request
         final response = await http.post(
-          Uri.parse('http://127.0.0.1:8000/api/accounts/signup/'),
+          Uri.parse('http://127.0.0.1:8000/api/accounts/register/'),
           headers: {
             'Content-Type': 'application/json',
           },
