@@ -4,76 +4,70 @@ import 'dart:convert'; // For jsonEncode
 import 'package:frontend_appdev/components/text_field.dart';
 import 'package:frontend_appdev/components/Button.dart';
 
-class SignUp extends StatelessWidget {
+class SignUp extends StatefulWidget {
   const SignUp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    // Get screen size
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
+  _SignUpState createState() => _SignUpState();
+}
 
-    // Form key for validation
-    final _formKey = GlobalKey<FormState>();
+class _SignUpState extends State<SignUp> {
+  final _formKey = GlobalKey<FormState>();
 
-    // Controllers for text fields
-    final TextEditingController _firstNameController = TextEditingController();
-    final TextEditingController _lastNameController = TextEditingController();
-    final TextEditingController _emailController = TextEditingController();
-    final TextEditingController _passwordController = TextEditingController();
-    final TextEditingController _confirmPasswordController =
-    TextEditingController();
-    final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _firstNameController = TextEditingController();
+  final TextEditingController _lastNameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
 
-    Future<void> _signUp() async {
-      if (_formKey.currentState!.validate()) {
-        // Prepare the data to send
-        final Map<String, dynamic> data = {
-          'first_name': _firstNameController.text,
-          'last_name': _lastNameController.text,
-          'email': _emailController.text,
-          'password': _passwordController.text,
-          'phone_number': _phoneController.text,
-        };
+  Future<void> _signUp() async {
+    if (_formKey.currentState!.validate()) {
+      final Map<String, dynamic> data = {
+        'first_name': _firstNameController.text,
+        'last_name': _lastNameController.text,
+        'email': _emailController.text,
+        'password': _passwordController.text,
+        'phone_number': _phoneController.text,
+      };
 
-        // Make the HTTP POST request
-        final response = await http.post(
-          Uri.parse('http://127.0.0.1:8000/api/accounts/register/'),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: jsonEncode(data),
+      final response = await http.post(
+        Uri.parse('http://127.0.0.1:8000/api/accounts/register/'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode(data),
+      );
+
+      if (response.statusCode == 201) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Sign Up Successful')),
         );
-
-        // Handle the response
-        if (response.statusCode == 201) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Sign Up Successful')),
-          );
-          Navigator.pushNamed(context, '/login'); // Navigate to login page
-        } else {
-          final responseData = jsonDecode(response.body);
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(responseData['error'] ?? 'Sign Up Failed')),
-          );
-        }
+        Navigator.pushNamed(context, '/login');
+      } else {
+        final responseData = jsonDecode(response.body);
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(responseData['error'] ?? 'Sign Up Failed')),
+        );
       }
     }
+  }
 
+  @override
+  Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
 
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
           padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
           child: Padding(
-            padding: EdgeInsets.all(screenWidth * 0.04), // Responsive padding
+            padding: EdgeInsets.all(screenWidth * 0.04),
             child: Form(
               key: _formKey,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  SizedBox(height: screenHeight * 0.03), // Responsive spacing
-                  // First Name and Last Name Row
+                  SizedBox(height: screenHeight * 0.03),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -85,25 +79,21 @@ class SignUp extends StatelessWidget {
                             Text(
                               'First Name',
                               style: TextStyle(
-                                fontSize:
-                                screenWidth * 0.06, // Responsive font size
+                                fontSize: screenWidth * 0.06,
                                 fontWeight: FontWeight.w400,
                                 color: const Color(0xFF00B2FF),
                               ),
                             ),
                             MyTextField(
                               controller: _firstNameController,
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Please enter your first name';
-                                }
-                                return null;
-                              },
+                              validator: (value) => value == null || value.isEmpty
+                                  ? 'Please enter your first name'
+                                  : null,
                             ),
                           ],
                         ),
                       ),
-                      SizedBox(width: screenWidth * 0.1), // Responsive spacing
+                      SizedBox(width: screenWidth * 0.1),
                       Flexible(
                         flex: 1,
                         child: Column(
@@ -112,35 +102,30 @@ class SignUp extends StatelessWidget {
                             Text(
                               'Last Name',
                               style: TextStyle(
-                                fontSize:
-                                screenWidth * 0.06, // Responsive font size
+                                fontSize: screenWidth * 0.06,
                                 fontWeight: FontWeight.w400,
                                 color: const Color(0xFF00B2FF),
                               ),
                             ),
                             MyTextField(
                               controller: _lastNameController,
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Please enter your last name';
-                                }
-                                return null;
-                              },
+                              validator: (value) => value == null || value.isEmpty
+                                  ? 'Please enter your last name'
+                                  : null,
                             ),
                           ],
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(height: screenHeight * 0.03), // Responsive spacing
-                  // Email Field
+                  SizedBox(height: screenHeight * 0.03),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         'Enter email',
                         style: TextStyle(
-                          fontSize: screenWidth * 0.06, // Responsive font size
+                          fontSize: screenWidth * 0.06,
                           fontWeight: FontWeight.w400,
                           color: const Color(0xFF00B2FF),
                         ),
@@ -148,11 +133,8 @@ class SignUp extends StatelessWidget {
                       EmailField(
                         controller: _emailController,
                         validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter your email';
-                          }
-                          if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
-                              .hasMatch(value)) {
+                          if (value == null || value.isEmpty) return 'Please enter your email';
+                          if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
                             return 'Please enter a valid email';
                           }
                           return null;
@@ -160,15 +142,14 @@ class SignUp extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: screenHeight * 0.03), // Responsive spacing
-                  // Create Password Field
+                  SizedBox(height: screenHeight * 0.03),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         'Create Password',
                         style: TextStyle(
-                          fontSize: screenWidth * 0.06, // Responsive font size
+                          fontSize: screenWidth * 0.06,
                           fontWeight: FontWeight.w400,
                           color: const Color(0xFF00B2FF),
                         ),
@@ -176,26 +157,21 @@ class SignUp extends StatelessWidget {
                       PasswordField(
                         controller: _passwordController,
                         validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter a password';
-                          }
-                          if (value.length < 6) {
-                            return 'Password must be at least 6 characters';
-                          }
+                          if (value == null || value.isEmpty) return 'Please enter a password';
+                          if (value.length < 6) return 'Password must be at least 6 characters';
                           return null;
                         },
                       ),
                     ],
                   ),
-                  SizedBox(height: screenHeight * 0.03), // Responsive spacing
-                  // Confirm Password Field
+                  SizedBox(height: screenHeight * 0.03),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         'Confirm Password',
                         style: TextStyle(
-                          fontSize: screenWidth * 0.06, // Responsive font size
+                          fontSize: screenWidth * 0.06,
                           fontWeight: FontWeight.w400,
                           color: const Color(0xFF00B2FF),
                         ),
@@ -203,63 +179,46 @@ class SignUp extends StatelessWidget {
                       PasswordField(
                         controller: _confirmPasswordController,
                         validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please confirm your password';
-                          }
-                          if (value != _passwordController.text) {
-                            return 'Passwords do not match';
-                          }
+                          if (value == null || value.isEmpty) return 'Please confirm your password';
+                          if (value != _passwordController.text) return 'Passwords do not match';
                           return null;
                         },
                       ),
                     ],
                   ),
-                  SizedBox(height: screenHeight * 0.03), // Responsive spacing
-                  // Phone Field
+                  SizedBox(height: screenHeight * 0.03),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         'Phone',
                         style: TextStyle(
-                          fontSize: screenWidth * 0.06, // Responsive font size
+                          fontSize: screenWidth * 0.06,
                           fontWeight: FontWeight.w400,
                           color: const Color(0xFF00B2FF),
                         ),
                       ),
                       PhoneField(
                         controller: _phoneController,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return "Enter your phone";
-                          }
-                          return null;
-                        },
+                        validator: (value) => value == null || value.isEmpty ? 'Enter your phone' : null,
                       ),
                     ],
                   ),
-                  SizedBox(height: screenHeight * 0.03), // Responsive spacing
-                  // Sign Up Button
+                  SizedBox(height: screenHeight * 0.03),
                   ButtonSignUp(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        // Form is valid, proceed with sign-up logic
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Sign Up Successful')),
-                        );
+                        _signUp();
                       }
                     },
                   ),
-                  SizedBox(height: screenHeight * 0.03), // Responsive spacing
-                  // Already have an account? Text
+                  SizedBox(height: screenHeight * 0.03),
                   GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, '/login');
-                    },
+                    onTap: () => Navigator.pushNamed(context, '/login'),
                     child: Text(
                       'Already have an account?',
                       style: TextStyle(
-                        fontSize: screenWidth * 0.04, // Responsive font size
+                        fontSize: screenWidth * 0.04,
                         color: const Color(0xFF00B2FF),
                       ),
                     ),
