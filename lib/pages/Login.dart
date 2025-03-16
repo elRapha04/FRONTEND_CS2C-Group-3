@@ -33,7 +33,7 @@ class _LoginState extends State<Login> {
       try {
         // Make the HTTP POST request
         final response = await http.post(
-          Uri.parse('http://127.0.0.1:8000/api/accounts/login/'),
+          Uri.parse('http://192.168.1.32/:8000/api/accounts/login/'),
           headers: {'Content-Type': 'application/json'},
           body: jsonEncode(data),
         );

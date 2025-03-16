@@ -31,25 +31,35 @@ class _SignUpState extends State<SignUp> {
         'phone_number': _phoneController.text,
       };
 
-      final response = await http.post(
-        Uri.parse('http://127.0.0.1:8000/api/accounts/register/'),
-        headers: {'Content-Type': 'application/json'},
-        body: jsonEncode(data),
-      );
+      print("Sending request: $data");
 
-      if (response.statusCode == 201) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Sign Up Successful')),
+      try {
+        final response = await http.post(
+          Uri.parse('http://192.168.1.32/:8000/api/accounts/register/'),
+          headers: {'Content-Type': 'application/json'},
+          body: jsonEncode(data),
         );
-        Navigator.pushNamed(context, '/login');
-      } else {
-        final responseData = jsonDecode(response.body);
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(responseData['error'] ?? 'Sign Up Failed')),
-        );
+
+        print("Response status: ${response.statusCode}");
+        print("Response body: ${response.body}");
+
+        if (response.statusCode == 201) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Sign Up Successful')),
+          );
+          Navigator.pushNamed(context, '/login');
+        } else {
+          final responseData = jsonDecode(response.body);
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(responseData['error'] ?? 'Sign Up Failed')),
+          );
+        }
+      } catch (e) {
+        print("Error: $e");
       }
     }
   }
+
 
   @override
   Widget build(BuildContext context) {
