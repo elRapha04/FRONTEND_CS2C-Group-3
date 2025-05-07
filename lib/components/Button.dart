@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:frontend_appdev/pages/Login.dart';
 import 'package:frontend_appdev/pages/userDashBoard/home_page.dart';
+import 'package:frontend_appdev/pages/userDashBoard/rentals.dart';
 
 class ButtonSignUp extends StatelessWidget {
   final VoidCallback onPressed;
@@ -69,7 +70,9 @@ class SeeMoreButton extends StatelessWidget {
             style: ElevatedButton.styleFrom(
               backgroundColor: Color(0xFF00B2FF),
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => RentalCarouselPage()));
+            },
             child: Text(
               'See more',
               style: TextStyle(
@@ -80,38 +83,16 @@ class SeeMoreButton extends StatelessWidget {
   }
 }
 
-class NoButton extends StatelessWidget {
-  const NoButton({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        width: 100,
-        height: 40,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.white,
-            ),
-            onPressed: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => home_page()),
-              );
-            },
-            child: Text(
-              'No',
-              style: TextStyle(
-                  color: Color(0xFF00B2FF),
-                  fontSize: 24,
-                  fontWeight: FontWeight.w400),
-            )));
-  }
-}
 
-class YesButton extends StatelessWidget {
-  const YesButton({super.key});
+class LogOutButtons extends StatelessWidget {
+  final String text;
+  final Function() onPressed;
+
+  const LogOutButtons({
+    Key? key,
+    required this.text,
+    required this.onPressed,
+}): super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -124,14 +105,9 @@ class YesButton extends StatelessWidget {
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white,
             ),
-            onPressed: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => Login()),
-              );
-            },
+            onPressed: onPressed,
             child: Text(
-              'Logout',
+              text,
               style: TextStyle(
                   color: Color(0xFF00B2FF),
                   fontSize: 24,
@@ -155,7 +131,7 @@ class MyButtons extends StatelessWidget {
       width: 320,
       height: 50,
       decoration: BoxDecoration(
-        color: Colors.cyan,
+        color: Color(0xFF00B2FF),
         border: Border.all(
           color: Colors.white,
           width: 2,

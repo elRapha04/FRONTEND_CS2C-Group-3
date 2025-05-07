@@ -7,7 +7,8 @@ class featured extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
+      width: 338,
+      height: 400,
       decoration: BoxDecoration(
         color: Colors.transparent,
         border: Border.all(style: BorderStyle.none),
@@ -16,7 +17,7 @@ class featured extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 35),
+            padding: const EdgeInsets.only(left: 10),
             child: Text(
               "Featured",
               textAlign: TextAlign.center,
@@ -28,56 +29,55 @@ class featured extends StatelessWidget {
             ),
           ),
           Container(
-            child: Column(children: [
-              SizedBox(
-                height: 10,
-              ),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                  child: Image(image: AssetImage("assets/Rental1.jpg"), height: 170, fit: BoxFit.cover,)
-              ),
-              SizedBox(height: 5,),
-              Padding(
-                padding: const EdgeInsets.only(left: 35),
-                child: Row(
-                  children: [
-                    Text(
-                      "Rental name",
-                      textAlign: TextAlign.start,
-                      style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xFF00B2FF),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 35),
-                child: Row(
-                  children: [
-                    Text(
-                      "Description",
-                      textAlign: TextAlign.start,
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Color(0xFF00B2FF),
-                      ),
-                    ),
-                  ],
-                ),
-              )
-            ]),
-            width: double.infinity,
             height: 250,
-            margin: EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: Colors.transparent,
-              border: Border.all(style: BorderStyle.solid),
-              borderRadius: BorderRadius.circular(15),
+              color: Colors.white,
+              border: Border.all(color: Colors.black),
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(color: Colors.black12, blurRadius: 4, offset: Offset(2, 2)),
+              ],
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
+                  child: Image.asset(
+                    "assets/Rental1.jpg",
+                    fit: BoxFit.cover,
+                    height: 120,
+                    width: double.infinity,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(12),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Rental Name",
+                        style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF00B2FF),
+                        ),
+                      ),
+                      SizedBox(height: 4),
+                      Text(
+                        "Description",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Color(0xFF00B2FF),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
+          SizedBox(height: 20,),
           SeeMoreButton(),
           SizedBox(height: 20,),
         ],

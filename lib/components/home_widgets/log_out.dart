@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:frontend_appdev/components/Button.dart';
+import 'package:frontend_appdev/pages/userDashBoard/home_page.dart';
+import 'package:frontend_appdev/pages/Login.dart';
 
 class LogOut extends StatelessWidget {
   const LogOut({super.key});
@@ -32,9 +34,19 @@ class LogOut extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  NoButton(),
+                  LogOutButtons(
+                      text: "No",
+                      onPressed: (){
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => home_page()));
+                      },
+                  ),
                   SizedBox(width: 10),
-                  YesButton(),
+                  LogOutButtons(
+                    text: "Logout",
+                    onPressed: (){
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Login() ));
+                    },
+                  ),
                 ],
               ),
             ],

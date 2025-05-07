@@ -65,8 +65,9 @@ class _LocationSearchPageState extends State<LocationSearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Color(0xFF00B2FF)),
         title: Text("Search Rentals"),
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Color(0xFF00B2FF),
         elevation: 0,
       ),
       backgroundColor: Colors.white,
@@ -83,9 +84,9 @@ class _LocationSearchPageState extends State<LocationSearchPage> {
                 child: TextField(
                   controller: _controller,
                   decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.search, color: Colors.lightBlue),
+                    prefixIcon: Icon(Icons.search, color: Color(0xFF00B2FF)),
                     hintText: 'Search location...',
-                    hintStyle: TextStyle(color: Colors.lightBlue),
+                    hintStyle: TextStyle(color: Color(0xFF00B2FF)),
                     filled: true,
                     fillColor: Colors.white,
                     contentPadding:
@@ -110,7 +111,7 @@ class _LocationSearchPageState extends State<LocationSearchPage> {
                     return ListTile(
                       title: Text(
                         location,
-                        style: TextStyle(color: Colors.blue),
+                        style: TextStyle(color: Color(0xFF00B2FF)),
                       ),
                       onTap: () => _navigateToLocation(location),
                     );
@@ -135,7 +136,7 @@ class _LocationSearchPageState extends State<LocationSearchPage> {
                 child: ElevatedButton(
                   onPressed: _onSearchPressed,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.lightBlue,
+                    backgroundColor: Color(0xFF00B2FF),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -166,7 +167,7 @@ class LocationResultPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('$location Rentals'),
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Color(0xFF00B2FF),
       ),
       body: Center(
         child: Text(

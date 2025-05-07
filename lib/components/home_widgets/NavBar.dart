@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:frontend_appdev/components/home_widgets/log_out.dart';
 import 'package:frontend_appdev/pages/userDashBoard/profile.dart';
+import 'package:frontend_appdev/pages/userDashBoard/transaction.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({Key? key}) : super(key: key);
@@ -54,7 +55,7 @@ class NavBar extends StatelessWidget {
             ),
             title: Text("Transaction",
                 style: TextStyle(color: Colors.white, fontSize: 20)),
-            onTap: () => null,
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => TransactionScreen())),
           ),
           ListTile(
             leading: Icon(

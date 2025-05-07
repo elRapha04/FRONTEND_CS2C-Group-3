@@ -15,9 +15,10 @@ class _Profile2State extends State<Profile2> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.cyan,
+        backgroundColor: Color(0xFF00B2FF),
         appBar: AppBar(
-          title: Text("Profile"),
+          iconTheme: IconThemeData(color: Color(0xFF00B2FF)),
+          title: Text("Profile", style: TextStyle(color: Color(0xFF00B2FF))),
         ),
         body: ListView(
           children: [
@@ -55,9 +56,13 @@ class _Profile2State extends State<Profile2> {
   );
 
   Widget buildProfileImage() => CircleAvatar(
-    radius: profileHeight / 2,
-    backgroundColor: Colors.grey.shade800,
-    backgroundImage: AssetImage("assets/profile.jpg"));
+    radius: 77,
+    backgroundColor: Color(0xFF00B2FF),
+    child: CircleAvatar(
+      radius: profileHeight / 2,
+      backgroundColor: Color(0xFF00B2FF),
+      backgroundImage: AssetImage("assets/profile.jpg")),
+  );
   Widget buildContent() => SingleChildScrollView(
     child: Container(
       width: double.infinity,
