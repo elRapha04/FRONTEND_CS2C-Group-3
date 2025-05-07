@@ -1,5 +1,10 @@
-// lib/search.dart
 import 'package:flutter/material.dart';
+
+// Import specific location pages
+import 'package:frontend_appdev/pages/Rentals/RentalLocations/bulua.dart';
+import 'package:frontend_appdev/pages/Rentals/RentalLocations/lapasan.dart';
+import 'package:frontend_appdev/pages/Rentals/RentalLocations/carmen.dart';
+import 'package:frontend_appdev/pages/Rentals/RentalLocations/kauswagan.dart';
 
 class LocationSearchPage extends StatefulWidget {
   @override
@@ -37,11 +42,28 @@ class _LocationSearchPageState extends State<LocationSearchPage> {
   }
 
   void _navigateToLocation(String locationName) {
+    Widget destination;
+
+    switch (locationName) {
+      case 'Bulua':
+        destination = BuluaPage();
+        break;
+      case 'Lapasan':
+        destination = LapasanPage();
+        break;
+      case 'Carmen':
+        destination = CarmenPage();
+        break;
+      case 'Kauswagan':
+        destination = KauswaganPage();
+        break;
+      default:
+        destination = LocationResultPage(location: locationName); // fallback
+    }
+
     Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (context) => LocationResultPage(location: locationName),
-      ),
+      MaterialPageRoute(builder: (context) => destination),
     );
   }
 
@@ -76,8 +98,7 @@ class _LocationSearchPageState extends State<LocationSearchPage> {
           children: [
             // Real Search Bar
             Padding(
-              padding:
-              const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
               child: Material(
                 elevation: 2,
                 borderRadius: BorderRadius.circular(10),
@@ -89,8 +110,7 @@ class _LocationSearchPageState extends State<LocationSearchPage> {
                     hintStyle: TextStyle(color: Color(0xFF00B2FF)),
                     filled: true,
                     fillColor: Colors.white,
-                    contentPadding:
-                    EdgeInsets.symmetric(horizontal: 12, vertical: 0),
+                    contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 0),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide: BorderSide.none,
@@ -156,7 +176,7 @@ class _LocationSearchPageState extends State<LocationSearchPage> {
   }
 }
 
-// Simple result page
+// Fallback result page
 class LocationResultPage extends StatelessWidget {
   final String location;
 
