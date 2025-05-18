@@ -196,7 +196,7 @@ class _LoginState extends State<Login> {
                           height: screenHeight * 0.06,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: AppColors.primary,
+                              backgroundColor: Colors.white,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),
@@ -205,9 +205,9 @@ class _LoginState extends State<Login> {
                             child: Text(
                               'Login',
                               style: TextStyle(
-                                color: Colors.white,
+                                color: AppColors.primary,
                                 fontSize: screenWidth * 0.05,
-                                fontWeight: FontWeight.w400,
+                                fontWeight: FontWeight.bold,
                                 fontFamily: AppFonts.primaryFont,
                               ),
                             ),
@@ -235,7 +235,7 @@ class _LoginState extends State<Login> {
                                   'Or login with',
                                   style: TextStyle(
                                     fontSize: screenWidth * 0.04,
-                                    fontWeight: FontWeight.w400,
+                                    fontWeight: FontWeight.bold,
                                     color: Colors.white,
                                     fontFamily: AppFonts.primaryFont,
                                   ),
@@ -264,7 +264,7 @@ class _LoginState extends State<Login> {
                     "Don't have an account?",
                     style: TextStyle(
                       fontSize: screenWidth * 0.04,
-                      fontWeight: FontWeight.w400,
+                      fontWeight: FontWeight.bold,
                       color: Colors.white,
                       fontFamily: AppFonts.primaryFont,
                     ),
