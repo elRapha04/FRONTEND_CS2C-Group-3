@@ -16,7 +16,7 @@ class _Profile2State extends State<Profile2> {
   final double coverHeight = 190;
   final double profileHeight = 144;
 
-  String gender = "Select gender";
+  String gender = "Select gender"; // Set default to match dropdown options
   DateTime? dateOfBirth = DateTime(2005, 5, 15);
 
   @override
@@ -85,6 +85,19 @@ class _Profile2State extends State<Profile2> {
   List<Widget> accountInformation() {
     return [
       ListTile(
+        title: Text("Email",
+            style: TextStyle(
+                color: Colors.white,
+                fontFamily: AppFonts.primaryFont,
+                fontWeight: FontWeight.bold)),
+        subtitle: Text("example@gmail",
+            style: TextStyle(
+                color: Colors.white,
+                fontFamily: AppFonts.primaryFont,
+                fontWeight: FontWeight.bold)),
+      ),
+      Divider(thickness: 1, color: Colors.white, indent: 20, endIndent: 20),
+      ListTile(
         title: Text("First Name",
             style: TextStyle(
                 color: Colors.white,
@@ -144,7 +157,7 @@ class _Profile2State extends State<Profile2> {
               gender = newValue!;
             });
           },
-          items: ['Male', 'Female', 'Other']
+          items: ['Select gender', 'Male', 'Female', 'Other']
               .map<DropdownMenuItem<String>>((String value) {
             return DropdownMenuItem<String>(
               value: value,
@@ -175,8 +188,8 @@ class _Profile2State extends State<Profile2> {
               lastDate: DateTime.now(),
               builder: (context, child) {
                 return Theme(
-                  data: ThemeData.light().copyWith(
-                    colorScheme: ColorScheme.light(
+                  data: ThemeData.dark().copyWith(
+                    colorScheme: ColorScheme.dark(
                       primary: AppColors.primary,
                       onPrimary: Colors.white,
                       surface: Colors.grey.shade900,
