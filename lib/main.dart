@@ -9,7 +9,7 @@ import 'services/api_service.dart';
 
 void main() => runApp(MaterialApp(
   debugShowCheckedModeBanner: false,
-  initialRoute: '/profile',
+  initialRoute: '/landing',
   routes: {
     '/landing': (context) => LandingPage(),
     '/login': (context) => Login(),
