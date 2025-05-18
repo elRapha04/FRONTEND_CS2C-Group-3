@@ -1,0 +1,2 @@
+C:/Users/Administrator/GitHub/PUBLIC REPOS/FRONTEND_CS2C-Group-3/android/app/.cxx/Debug/3l6q366p/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/Administrator/GitHub/PUBLIC REPOS/FRONTEND_CS2C-Group-3/android/app/.cxx/Debug/3l6q366p/x86_64/CMakeFiles/rebuild_cache.dir
