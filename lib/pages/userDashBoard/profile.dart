@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_appdev/themes/Colors.dart';
+import 'package:frontend_appdev/themes/Fonts.dart';
 import 'package:frontend_appdev/components/Button.dart';
 
 class Profile2 extends StatefulWidget {
@@ -15,10 +17,10 @@ class _Profile2State extends State<Profile2> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xFF00B2FF),
+        backgroundColor: AppColors.primary,
         appBar: AppBar(
-          iconTheme: IconThemeData(color: Color(0xFF00B2FF)),
-          title: Text("Profile", style: TextStyle(color: Color(0xFF00B2FF))),
+          iconTheme: IconThemeData(color: AppColors.primary),
+          title: Text("Profile", style: TextStyle(color: AppColors.primary)),
         ),
         body: ListView(
           children: [
@@ -57,10 +59,10 @@ class _Profile2State extends State<Profile2> {
 
   Widget buildProfileImage() => CircleAvatar(
     radius: 77,
-    backgroundColor: Color(0xFF00B2FF),
+    backgroundColor: AppColors.primary,
     child: CircleAvatar(
       radius: profileHeight / 2,
-      backgroundColor: Color(0xFF00B2FF),
+      backgroundColor: AppColors.primary,
       backgroundImage: AssetImage("assets/profile.jpg")),
   );
   Widget buildContent() => SingleChildScrollView(
@@ -70,9 +72,9 @@ class _Profile2State extends State<Profile2> {
       child: Column(
         children: [
           Text('Username',
-              style: TextStyle(color: Colors.white, fontSize: 18)),
+              style: TextStyle(color: Colors.white, fontSize: 18, fontFamily: AppFonts.primaryFont,)),
           Text('username@example.com',
-              style: TextStyle(color: Colors.white, fontSize: 18)),
+              style: TextStyle(color: Colors.white, fontSize: 18, fontFamily: AppFonts.primaryFont,)),
           SizedBox(
             height: 10,
           ),

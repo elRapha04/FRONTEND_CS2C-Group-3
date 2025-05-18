@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_appdev/themes/Colors.dart';
+import 'package:frontend_appdev/themes/Fonts.dart';
 import 'package:frontend_appdev/components/Button.dart';
 
 class featured extends StatelessWidget {
@@ -24,7 +26,8 @@ class featured extends StatelessWidget {
               style: TextStyle(
                 fontSize: 40,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF00B2FF),
+                color: AppColors.primary,
+                fontFamily: AppFonts.primaryFont,
               ),
             ),
           ),
@@ -60,7 +63,8 @@ class featured extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 25,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF00B2FF),
+                          color: AppColors.primary,
+                          fontFamily: AppFonts.primaryFont,
                         ),
                       ),
                       SizedBox(height: 4),
@@ -68,7 +72,8 @@ class featured extends StatelessWidget {
                         "Description",
                         style: TextStyle(
                           fontSize: 16,
-                          color: Color(0xFF00B2FF),
+                          color: AppColors.primary,
+                          fontFamily: AppFonts.primaryFont,
                         ),
                       ),
                     ],

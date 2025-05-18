@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_appdev/themes/Colors.dart';
+import 'package:frontend_appdev/themes/Fonts.dart';
 import 'package:frontend_appdev/components/Button.dart';
 import 'package:frontend_appdev/pages/userDashBoard/home_page.dart';
 import 'package:frontend_appdev/pages/Login.dart';
@@ -16,7 +18,7 @@ class LogOut extends StatelessWidget {
           padding: EdgeInsets.all(30),
           margin: EdgeInsets.all(30),
           decoration: BoxDecoration(
-            color: Color(0xFF00B2FF),
+            color: AppColors.primary,
             borderRadius: BorderRadius.circular(16),
           ),
           child: Column(
@@ -28,7 +30,7 @@ class LogOut extends StatelessWidget {
               Text(
                 "You are about to logout.\nAre you sure this is what you want to do?",
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 24),
+                style: TextStyle(fontSize: 24, fontFamily: AppFonts.primaryFont,),
               ),
               SizedBox(height: 24),
               Row(

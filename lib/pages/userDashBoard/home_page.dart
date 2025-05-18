@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:frontend_appdev/themes/Colors.dart';
 import 'package:frontend_appdev/components/home_widgets/payment.dart';
 import 'package:frontend_appdev/components/home_widgets/featured.dart';
 import 'package:frontend_appdev/components/home_widgets/NavBar.dart';
@@ -12,7 +12,7 @@ class home_page extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Color(0xFF00B2FF), size: 37),
+        iconTheme: IconThemeData(color: AppColors.primary, size: 37),
         leading: Builder(
             builder: (context) => IconButton(
               icon: Icon(Icons.person),

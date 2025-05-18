@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_appdev/themes/Colors.dart';
+import 'package:frontend_appdev/themes/Fonts.dart';
 import 'package:frontend_appdev/pages/Rentals/booking.dart';
 
 class Rental {
@@ -33,9 +35,9 @@ class RentalCarouselPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Featured Rentals', style: TextStyle(color: Color(0xFF00B2FF), fontFamily: 'Montserrat')),
+        title: Text('Featured Rentals', style: TextStyle(color: AppColors.primary, fontFamily: AppFonts.primaryFont)),
         backgroundColor: Colors.white,
-        iconTheme: IconThemeData(color: Color(0xFF00B2FF)),
+        iconTheme: IconThemeData(color: AppColors.primary),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(vertical: 16),
@@ -64,9 +66,9 @@ class RentalCarouselPage extends StatelessWidget {
                 title,
                 style: TextStyle(
                   fontSize: 20,
-                  color: Color(0xFF00B2FF),
+                  color: AppColors.primary,
                   fontWeight: FontWeight.bold,
-                  fontFamily: 'Montserrat',
+                  fontFamily: AppFonts.primaryFont,
                 ),
               ),
             ),
@@ -133,8 +135,8 @@ class RentalCarouselPage extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF00B2FF),
-                    fontFamily: 'Montserrat',
+                    color: AppColors.primary,
+                    fontFamily: AppFonts.primaryFont,
                   ),
                 ),
                 SizedBox(height: 4),
@@ -142,8 +144,8 @@ class RentalCarouselPage extends StatelessWidget {
                   rental.description,
                   style: TextStyle(
                     fontSize: 12,
-                    color: Color(0xFF00B2FF),
-                    fontFamily: 'Montserrat',
+                    color: AppColors.primary,
+                    fontFamily: AppFonts.primaryFont,
                   ),
                 ),
               ],
@@ -163,13 +165,13 @@ class RentalInfoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const lightBlue = Color(0xFF00B2FF);
+    const lightBlue = AppColors.primary;
 
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: lightBlue),
         backgroundColor: Colors.white,
-        title: Text(name, style: TextStyle(color: lightBlue, fontFamily: 'Montserrat')),
+        title: Text(name, style: TextStyle(color: lightBlue, fontFamily: AppFonts.primaryFont)),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -182,7 +184,7 @@ class RentalInfoScreen extends StatelessWidget {
                 border: Border.all(color: Colors.black),
                 borderRadius: BorderRadius.circular(8),
               ),
-              child: Center(child: Text("img", style: TextStyle(fontFamily: 'JosefinSlab'))),
+              child: Center(child: Text("img", style: TextStyle(fontFamily: AppFonts.primaryFont))),
             ),
             SizedBox(height: 24),
             Row(
@@ -191,7 +193,7 @@ class RentalInfoScreen extends StatelessWidget {
                   '₱ 999.00',
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                    fontFamily: 'Montserrat',
+                    fontFamily: AppFonts.primaryFont,
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
                     color: lightBlue,
@@ -201,7 +203,7 @@ class RentalInfoScreen extends StatelessWidget {
             ),
             Row(
               children: [
-                Text(name, style: TextStyle(fontSize: 20, color: lightBlue),),
+                Text(name, style: TextStyle(fontSize: 20, color: lightBlue, fontFamily: AppFonts.primaryFont,),),
               ],
             ),
             SizedBox(height: 12),
@@ -209,7 +211,7 @@ class RentalInfoScreen extends StatelessWidget {
               children: [
                 Text(
                   description,
-                  style: TextStyle(fontFamily: 'Montserrat', fontSize: 16, color: lightBlue, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontFamily: AppFonts.primaryFont, fontSize: 16, color: lightBlue, fontWeight: FontWeight.bold,),
                 ),
               ],
             ),
@@ -230,7 +232,7 @@ class RentalInfoScreen extends StatelessWidget {
                 child: Text(
                   'Continue',
                   style: TextStyle(
-                    fontFamily: 'Montserrat',
+                    fontFamily: AppFonts.primaryFont,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,

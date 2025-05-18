@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_appdev/themes/Colors.dart';
+import 'package:frontend_appdev/themes/Fonts.dart';
 
 class TransactionScreen extends StatefulWidget {
   @override
@@ -12,9 +14,9 @@ class _TransactionScreenState extends State<TransactionScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Transactions', style: TextStyle(color: Colors.cyan)),
+        title: Text('Transactions', style: TextStyle(color: AppColors.primary, fontFamily: AppFonts.primaryFont,)),
         iconTheme: IconThemeData(
-          color: Colors.cyan,
+          color: AppColors.primary,
         ),
         backgroundColor: Colors.white,
         elevation: 0,
@@ -39,15 +41,15 @@ class _TransactionScreenState extends State<TransactionScreen> {
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor:
-                    isHistorySelected ? Color(0xFF00B2FF) : Colors.white,
+                    isHistorySelected ? AppColors.primary : Colors.white,
                     foregroundColor:
-                    isHistorySelected ? Colors.white : Color(0xFF00B2FF),
-                    side: BorderSide(color: Color(0xFF00B2FF)),
+                    isHistorySelected ? Colors.white : AppColors.primary,
+                    side: BorderSide(color: AppColors.primary),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
-                  child: Text('History'),
+                  child: Text('History', style: TextStyle(fontFamily: AppFonts.primaryFont,),),
                 ),
               ),
               SizedBox(width: 20), // spacing between buttons
@@ -62,15 +64,15 @@ class _TransactionScreenState extends State<TransactionScreen> {
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor:
-                    !isHistorySelected ? Color(0xFF00B2FF) : Colors.white,
+                    !isHistorySelected ? AppColors.primary : Colors.white,
                     foregroundColor:
-                    !isHistorySelected ? Colors.white : Color(0xFF00B2FF),
-                    side: BorderSide(color: Color(0xFF00B2FF)),
+                    !isHistorySelected ? Colors.white : AppColors.primary,
+                    side: BorderSide(color: AppColors.primary),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
-                  child: Text('Pending'),
+                  child: Text('Pending', style: TextStyle(fontFamily: AppFonts.primaryFont,),),
                 ),
               ),
             ],
@@ -91,62 +93,62 @@ class _TransactionScreenState extends State<TransactionScreen> {
   List<Widget> historyList() {
     return [
       ListTile(
-        title: Text('Rental Name', style: TextStyle(color: Color(0xFF00B2FF), fontSize: 25,)),
+        title: Text('Rental Name', style: TextStyle(color: AppColors.primary, fontSize: 25, fontFamily: AppFonts.primaryFont,)),
         subtitle:
-        Text('Jan 13 2025, 2:00 pm', style: TextStyle(color: Colors.grey, fontSize: 15,)),
-        trailing: Text('₱ 999.99', style: TextStyle(color: Color(0xFF00B2FF), fontSize: 25)),
+        Text('Jan 13 2025, 2:00 pm', style: TextStyle(color: Colors.grey, fontSize: 15, fontFamily: AppFonts.primaryFont,)),
+        trailing: Text('₱ 999.99', style: TextStyle(color: AppColors.primary, fontSize: 25, fontFamily: AppFonts.primaryFont,)),
       ),
       Divider(
         thickness: 1,
-        color: Color(0xFF00B2FF),
+        color: AppColors.primary,
         indent: 20, // left spacing
         endIndent: 20,
       ),
       ListTile(
-        title: Text('Rental Name', style: TextStyle(color: Color(0xFF00B2FF), fontSize: 25,)),
+        title: Text('Rental Name', style: TextStyle(color: AppColors.primary, fontSize: 25, fontFamily: AppFonts.primaryFont,)),
         subtitle:
-        Text('Jan 13 2025, 2:00 pm', style: TextStyle(color: Colors.grey, fontSize: 15,)),
-        trailing: Text('₱ 999.99', style: TextStyle(color: Color(0xFF00B2FF), fontSize: 25)),
+        Text('Jan 13 2025, 2:00 pm', style: TextStyle(color: Colors.grey, fontSize: 15, fontFamily: AppFonts.primaryFont,)),
+        trailing: Text('₱ 999.99', style: TextStyle(color: AppColors.primary, fontSize: 25, fontFamily: AppFonts.primaryFont,)),
       ),
       Divider(
         thickness: 1,
-        color: Color(0xFF00B2FF),
+        color: AppColors.primary,
         indent: 20, // left spacing
         endIndent: 20,
       ),
       ListTile(
-        title: Text('Rental Name', style: TextStyle(color: Color(0xFF00B2FF), fontSize: 25)),
+        title: Text('Rental Name', style: TextStyle(color: AppColors.primary, fontSize: 25, fontFamily: AppFonts.primaryFont,)),
         subtitle:
-        Text('Jan 13 2025, 2:00 pm', style: TextStyle(color: Colors.grey, fontSize: 15)),
-        trailing: Text('₱ 999.99', style: TextStyle(color: Color(0xFF00B2FF), fontSize: 25)),
+        Text('Jan 13 2025, 2:00 pm', style: TextStyle(color: Colors.grey, fontSize: 15, fontFamily: AppFonts.primaryFont,)),
+        trailing: Text('₱ 999.99', style: TextStyle(color: AppColors.primary, fontSize: 25, fontFamily: AppFonts.primaryFont,)),
       ),
       Divider(
         thickness: 1,
-        color: Color(0xFF00B2FF),
+        color: AppColors.primary,
         indent: 20, // left spacing
         endIndent: 20,
       ),
       ListTile(
-        title: Text('Rental Name', style: TextStyle(color: Color(0xFF00B2FF), fontSize: 25,)),
+        title: Text('Rental Name', style: TextStyle(color: AppColors.primary, fontSize: 25, fontFamily: AppFonts.primaryFont,)),
         subtitle:
-        Text('Jan 13 2025, 2:00 pm', style: TextStyle(color: Colors.grey, fontSize: 15,)),
-        trailing: Text('₱ 999.99', style: TextStyle(color: Color(0xFF00B2FF), fontSize: 25)),
+        Text('Jan 13 2025, 2:00 pm', style: TextStyle(color: Colors.grey, fontSize: 15, fontFamily: AppFonts.primaryFont,)),
+        trailing: Text('₱ 999.99', style: TextStyle(color: AppColors.primary, fontSize: 25, fontFamily: AppFonts.primaryFont,)),
       ),
       Divider(
         thickness: 1,
-        color: Color(0xFF00B2FF),
+        color: AppColors.primary,
         indent: 20, // left spacing
         endIndent: 20,
       ),
       ListTile(
-        title: Text('Rental Name', style: TextStyle(color: Color(0xFF00B2FF), fontSize: 25,)),
+        title: Text('Rental Name', style: TextStyle(color: AppColors.primary, fontSize: 25, fontFamily: AppFonts.primaryFont,)),
         subtitle:
-        Text('Jan 13 2025, 2:00 pm', style: TextStyle(color: Colors.grey, fontSize: 15,)),
-        trailing: Text('₱ 999.99', style: TextStyle(color: Color(0xFF00B2FF), fontSize: 25)),
+        Text('Jan 13 2025, 2:00 pm', style: TextStyle(color: Colors.grey, fontSize: 15, fontFamily: AppFonts.primaryFont)),
+        trailing: Text('₱ 999.99', style: TextStyle(color: AppColors.primary, fontSize: 25, fontFamily: AppFonts.primaryFont)),
       ),
       Divider(
         thickness: 1,
-        color: Colors.cyan,
+        color: AppColors.primary,
         indent: 20, // left spacing
         endIndent: 20,
       ),
@@ -156,40 +158,40 @@ class _TransactionScreenState extends State<TransactionScreen> {
   List<Widget> pendingList() {
     return [
       ListTile(
-        title: Text('Rental Name', style: TextStyle(color: Colors.cyan, fontSize: 25,)),
+        title: Text('Rental Name', style: TextStyle(color: AppColors.primary, fontSize: 25, fontFamily: AppFonts.primaryFont)),
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('Due: Jul 13 2025, 2:00 pm',
-                style: TextStyle(color: Colors.grey, fontSize: 15)),
+                style: TextStyle(color: Colors.grey, fontSize: 15, fontFamily: AppFonts.primaryFont)),
             Text('₱ 999.99',
-                style: TextStyle(color: Colors.cyan, fontSize: 25))
+                style: TextStyle(color: AppColors.primary, fontSize: 25, fontFamily: AppFonts.primaryFont))
           ],
         ),
-        trailing: Icon(Icons.close, color: Colors.cyan, size: 25,),
+        trailing: Icon(Icons.close, color: AppColors.primary, size: 25,),
       ),
       Divider(
         thickness: 1,
-        color: Colors.cyan,
+        color: AppColors.primary,
         indent: 20, // left spacing
         endIndent: 20,
       ),
       ListTile(
-        title: Text('Rental Name', style: TextStyle(color: Colors.cyan, fontSize: 25)),
+        title: Text('Rental Name', style: TextStyle(color: AppColors.primary, fontSize: 25, fontFamily: AppFonts.primaryFont)),
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('Due: Jul 13 2025, 2:00 pm',
-                style: TextStyle(color: Colors.grey, fontSize: 15)),
+                style: TextStyle(color: Colors.grey, fontSize: 15, fontFamily: AppFonts.primaryFont)),
             Text('₱ 999.99',
-                style: TextStyle(color: Colors.cyan, fontSize: 25))
+                style: TextStyle(color: AppColors.primary, fontSize: 25, fontFamily: AppFonts.primaryFont))
           ],
         ),
-        trailing: Icon(Icons.close, color: Colors.cyan, size: 25,),
+        trailing: Icon(Icons.close, color: AppColors.primary, size: 25,),
       ),
       Divider(
         thickness: 1,
-        color: Colors.cyan,
+        color: AppColors.primary,
         indent: 20, // left spacing
         endIndent: 20,
       ),

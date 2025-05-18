@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:frontend_appdev/themes/Colors.dart';
+import 'package:frontend_appdev/themes/Fonts.dart';
 
 class MyTextField extends StatelessWidget {
   final TextEditingController? controller;
@@ -17,21 +19,22 @@ class MyTextField extends StatelessWidget {
           controller: controller,
           validator: validator,
           style: TextStyle(
-            color: Color(0xFF00B2FF),
+            color: AppColors.primary,
             fontSize: 16,
+            fontFamily: AppFonts.primaryFont,
           ),
           keyboardType: TextInputType.text,
           decoration: InputDecoration(
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
               borderSide: BorderSide(
-                color: Color(0xFF00B2FF),
+                color: AppColors.primary,
               ),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
               borderSide: BorderSide(
-                color: Color(0xFF00B2FF),
+                color: AppColors.primary,
               ),
             ),
             errorBorder: OutlineInputBorder(
@@ -67,20 +70,20 @@ class EmailField extends StatelessWidget {
         controller: controller,
         validator: validator,
         style: TextStyle(
-          color: Color(0xFF00B2FF),
+          color: AppColors.primary,
         ),
         keyboardType: TextInputType.emailAddress,
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
             borderSide: BorderSide(
-              color: Color(0xFF00B2FF),
+              color: AppColors.primary,
             ),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
             borderSide: BorderSide(
-              color: Color(0xFF00B2FF),
+              color: AppColors.primary,
             ),
           ),
           errorBorder: OutlineInputBorder(
@@ -115,7 +118,8 @@ class PasswordField extends StatelessWidget {
         controller: controller,
         validator: validator,
         style: TextStyle(
-          color: Color(0xFF00B2FF),
+          color: AppColors.primary,
+          fontFamily: AppFonts.primaryFont,
         ),
         keyboardType: TextInputType.text,
         obscureText: true,
@@ -123,13 +127,13 @@ class PasswordField extends StatelessWidget {
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
             borderSide: BorderSide(
-              color: Color(0xFF00B2FF),
+              color: AppColors.primary,
             ),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
             borderSide: BorderSide(
-              color: Color(0xFF00B2FF),
+              color: AppColors.primary,
             ),
           ),
           errorBorder: OutlineInputBorder(
@@ -164,7 +168,8 @@ class PhoneField extends StatelessWidget {
         controller: controller,
         validator: validator,
         style: TextStyle(
-          color: Color(0xFF00B2FF),
+          color: AppColors.primary,
+          fontFamily: AppFonts.primaryFont,
         ),
         keyboardType: TextInputType.phone,
         inputFormatters: [
@@ -174,13 +179,13 @@ class PhoneField extends StatelessWidget {
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
             borderSide: BorderSide(
-              color: Color(0xFF00B2FF),
+              color: AppColors.primary,
             ),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
             borderSide: BorderSide(
-              color: Color(0xFF00B2FF),
+              color: AppColors.primary,
             ),
           ),
           errorBorder: OutlineInputBorder(

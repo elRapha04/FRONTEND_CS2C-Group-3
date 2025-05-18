@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_appdev/themes/Colors.dart';
+import 'package:frontend_appdev/themes/Fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -96,8 +98,9 @@ class _OwnerManagerState extends State<OwnerManager> {
                 child: Text(
                   'Admin profile name',
                   style: TextStyle(
-                    color: Colors.lightBlue,
+                    color: AppColors.primary,
                     fontSize: 13,
+                    fontFamily: AppFonts.primaryFont,
                   ),
                 ),
               ),
@@ -112,7 +115,7 @@ class _OwnerManagerState extends State<OwnerManager> {
                       margin: const EdgeInsets.only(bottom: 8),
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       decoration: BoxDecoration(
-                        color: Colors.lightBlue,
+                        color: AppColors.primary,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Row(
@@ -121,7 +124,7 @@ class _OwnerManagerState extends State<OwnerManager> {
                             child: TextField(
                               controller: owner.controller,
                               enabled: owner.isEditing,
-                              style: const TextStyle(color: Colors.white),
+                              style: TextStyle(color: Colors.white, fontFamily: AppFonts.primaryFont,),
                               onChanged: (_) => onTextChanged(),
                               decoration: const InputDecoration(
                                 border: InputBorder.none,
@@ -131,7 +134,7 @@ class _OwnerManagerState extends State<OwnerManager> {
                           IconButton(
                             icon: Icon(
                               Icons.edit,
-                              color: owner.isEditing ? Colors.yellow : Colors.white,
+                              color: owner.isEditing ? AppColors.primary : Colors.white,
                             ),
                             onPressed: () => toggleEdit(index),
                           ),
@@ -151,12 +154,12 @@ class _OwnerManagerState extends State<OwnerManager> {
                 child: ElevatedButton(
                   onPressed: addOwner,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.lightBlue,
+                    backgroundColor: AppColors.primary,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  child: const Text("+", style: TextStyle(fontSize: 20)),
+                  child: const Text("+", style: TextStyle(fontSize: 20, fontFamily: AppFonts.primaryFont,)),
                 ),
               ),
             ],

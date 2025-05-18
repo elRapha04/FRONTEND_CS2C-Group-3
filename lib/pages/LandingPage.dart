@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_appdev/themes/Colors.dart';
+import 'package:frontend_appdev/themes/Fonts.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
@@ -8,7 +10,7 @@ class LandingPage extends StatelessWidget {
       child: Scaffold(
         body: Container(
           decoration: BoxDecoration(
-            color: Color(0xFF00B2FF),
+            color: AppColors.primary,
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -30,12 +32,12 @@ class LandingPage extends StatelessWidget {
                         fontSize: 60,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
-                      fontFamily: 'JosefinSlab',
+                      fontFamily: AppFonts.primaryFont,
                     ),
                   ),
                   Text(
                     'Find your ideal rental today!',
-                    style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold, fontFamily: 'JosefinSlab',),
+                    style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold, fontFamily: AppFonts.primaryFont,),
                   ),
                   SizedBox(
                     height: 30,
@@ -63,9 +65,9 @@ class LandingPage extends StatelessWidget {
                           Text('Login',
                               style: TextStyle(
                                 fontSize: 24,
-                                color: Color(0xFF00B2FF),
+                                color: AppColors.primary,
                                 fontWeight: FontWeight.bold,
-                                fontFamily: 'JosefinSlab',
+                                fontFamily: AppFonts.primaryFont,
                               )),
                         ],
                       ),
@@ -98,9 +100,9 @@ class LandingPage extends StatelessWidget {
                           Text('Create an account',
                               style: TextStyle(
                                 fontSize: 24,
-                                color: Color(0xFF00B2FF),
+                                color: AppColors.primary,
                                 fontWeight: FontWeight.bold,
-                                fontFamily: 'JosefinSlab',
+                                fontFamily: AppFonts.primaryFont,
                               )),
                         ],
                       ),

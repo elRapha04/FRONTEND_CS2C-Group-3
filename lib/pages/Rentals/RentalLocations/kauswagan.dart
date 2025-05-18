@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_appdev/themes/Colors.dart';
+import 'package:frontend_appdev/themes/Fonts.dart';
 
 class RentalItem {
   final String imagePath; // Path to asset image
@@ -40,17 +42,17 @@ class KauswaganPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: BackButton(color: Colors.blue),
+        leading: BackButton(color: AppColors.primary),
         backgroundColor: Colors.white,
         title: Container(
           padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.blue),
+            border: Border.all(color: AppColors.primary),
             borderRadius: BorderRadius.circular(20),
           ),
           child: Text(
             "Kauswagan",
-            style: TextStyle(color: Colors.blue, fontSize: 14),
+            style: TextStyle(color: AppColors.primary, fontSize: 14, fontFamily: AppFonts.primaryFont,),
           ),
         ),
       ),
@@ -75,7 +77,7 @@ class RentalBox extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
         border: Border(
-          bottom: BorderSide(color: Colors.cyan),
+          bottom: BorderSide(color: AppColors.primary),
         ),
       ),
       child: Padding(
@@ -104,17 +106,17 @@ class RentalBox extends StatelessWidget {
                 children: [
                   Text(
                     "₱ ${item.price.toStringAsFixed(2)}",
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.blue),
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: AppColors.primary, fontFamily: AppFonts.primaryFont,),
                   ),
                   Row(
                     children: [
-                      Icon(Icons.star, size: 20, color: Colors.blue),
+                      Icon(Icons.star, size: 20, color:AppColors.primary,),
                       SizedBox(width: 4),
-                      Text("${item.rating}", style: TextStyle(color: Colors.blue, fontSize: 20,)),
+                      Text("${item.rating}", style: TextStyle(color: AppColors.primary, fontSize: 20,fontFamily: AppFonts.primaryFont,)),
                     ],
                   ),
                   SizedBox(height: 4),
-                  Text(item.location, style: TextStyle(color: Colors.grey.shade600)),
+                  Text(item.location, style: TextStyle(color: Colors.grey.shade600, fontFamily: AppFonts.primaryFont,)),
                 ],
               ),
             ),

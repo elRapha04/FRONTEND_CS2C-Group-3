@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:frontend_appdev/pages/Login.dart';
 import 'package:frontend_appdev/pages/userDashBoard/home_page.dart';
 import 'package:frontend_appdev/pages/userDashBoard/rentals.dart';
+import 'package:frontend_appdev/themes/Colors.dart';
+import 'package:frontend_appdev/themes/Fonts.dart';
 
 class ButtonSignUp extends StatelessWidget {
   final VoidCallback onPressed;
@@ -18,13 +20,13 @@ class ButtonSignUp extends StatelessWidget {
       ),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: Color(0xFF00B2FF),
+          backgroundColor: AppColors.primary,
         ),
         onPressed: onPressed,
         child: Text(
           'Create Account',
           style: TextStyle(
-              color: Colors.white, fontSize: 24, fontWeight: FontWeight.w400),
+              color: Colors.white, fontSize: 24, fontWeight: FontWeight.w400, fontFamily: AppFonts.primaryFont,),
         ),
       ),
     );
@@ -43,12 +45,13 @@ class ButtonSignUpAccount extends StatelessWidget {
         ),
         child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xFF00B2FF),
+              backgroundColor: AppColors.primary,
             ),
             onPressed: () {},
             child: Text(
               'Create Account',
               style: TextStyle(
+                  fontFamily: AppFonts.primaryFont,
                   color: Colors.white,
                   fontSize: 24,
                   fontWeight: FontWeight.w400),
@@ -68,7 +71,7 @@ class SeeMoreButton extends StatelessWidget {
         ),
         child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xFF00B2FF),
+              backgroundColor: AppColors.primary,
             ),
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) => RentalCarouselPage()));
@@ -76,6 +79,7 @@ class SeeMoreButton extends StatelessWidget {
             child: Text(
               'See more',
               style: TextStyle(
+                  fontFamily: AppFonts.primaryFont,
                   color: Colors.white,
                   fontSize: 24,
                   fontWeight: FontWeight.w400),
@@ -109,7 +113,8 @@ class LogOutButtons extends StatelessWidget {
             child: Text(
               text,
               style: TextStyle(
-                  color: Color(0xFF00B2FF),
+                  fontFamily: AppFonts.primaryFont,
+                  color: AppColors.primary,
                   fontSize: 24,
                   fontWeight: FontWeight.w400),
             )));
@@ -131,7 +136,7 @@ class MyButtons extends StatelessWidget {
       width: 320,
       height: 50,
       decoration: BoxDecoration(
-        color: Color(0xFF00B2FF),
+        color: AppColors.primary,
         border: Border.all(
           color: Colors.white,
           width: 2,
@@ -144,6 +149,7 @@ class MyButtons extends StatelessWidget {
         style: TextStyle(
           color: Colors.white,
           fontSize: 18,
+          fontFamily: AppFonts.primaryFont,
         ),
       ),
     );

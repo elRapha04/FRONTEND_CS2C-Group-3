@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_appdev/themes/Colors.dart';
+import 'package:frontend_appdev/themes/Fonts.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert'; // For jsonEncode
 import 'package:frontend_appdev/components/text_field.dart';
@@ -93,8 +95,8 @@ class _SignUpState extends State<SignUp> {
                               style: TextStyle(
                                 fontSize: screenWidth * 0.06,
                                 fontWeight: FontWeight.w400,
-                                color: const Color(0xFF00B2FF),
-                                fontFamily: 'JosefinSlab',
+                                color: AppColors.primary,
+                                fontFamily: AppFonts.primaryFont,
                               ),
                             ),
                             MyTextField(
@@ -119,8 +121,8 @@ class _SignUpState extends State<SignUp> {
                               style: TextStyle(
                                 fontSize: screenWidth * 0.06,
                                 fontWeight: FontWeight.w400,
-                                color: const Color(0xFF00B2FF),
-                                fontFamily: 'JosefinSlab',
+                                color: AppColors.primary,
+                                fontFamily: AppFonts.primaryFont,
                               ),
                             ),
                             MyTextField(
@@ -145,8 +147,8 @@ class _SignUpState extends State<SignUp> {
                         style: TextStyle(
                           fontSize: screenWidth * 0.06,
                           fontWeight: FontWeight.w400,
-                          color: const Color(0xFF00B2FF),
-                          fontFamily: 'JosefinSlab',
+                          color: AppColors.primary,
+                          fontFamily: AppFonts.primaryFont,
                         ),
                       ),
                       EmailField(
@@ -173,8 +175,8 @@ class _SignUpState extends State<SignUp> {
                         style: TextStyle(
                           fontSize: screenWidth * 0.06,
                           fontWeight: FontWeight.w400,
-                          color: const Color(0xFF00B2FF),
-                          fontFamily: 'JosefinSlab',
+                          color: AppColors.primary,
+                          fontFamily: AppFonts.primaryFont,
                         ),
                       ),
                       PasswordField(
@@ -198,8 +200,8 @@ class _SignUpState extends State<SignUp> {
                         style: TextStyle(
                           fontSize: screenWidth * 0.06,
                           fontWeight: FontWeight.w400,
-                          color: const Color(0xFF00B2FF),
-                          fontFamily: 'JosefinSlab',
+                          color: AppColors.primary,
+                          fontFamily: AppFonts.primaryFont,
                         ),
                       ),
                       PasswordField(
@@ -223,8 +225,8 @@ class _SignUpState extends State<SignUp> {
                         style: TextStyle(
                           fontSize: screenWidth * 0.06,
                           fontWeight: FontWeight.w400,
-                          color: const Color(0xFF00B2FF),
-                          fontFamily: 'JosefinSlab',
+                          color: AppColors.primary,
+                          fontFamily: AppFonts.primaryFont,
                         ),
                       ),
                       PhoneField(
@@ -252,8 +254,8 @@ class _SignUpState extends State<SignUp> {
                       'Already have an account?',
                       style: TextStyle(
                         fontSize: screenWidth * 0.04,
-                        color: const Color(0xFF00B2FF),
-                        fontFamily: 'JosefinSlab',
+                        color: AppColors.primary,
+                        fontFamily: AppFonts.primaryFont,
                         fontWeight: FontWeight.bold,
                       ),
                     ),

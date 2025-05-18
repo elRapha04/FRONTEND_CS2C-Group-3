@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_appdev/themes/Colors.dart';
+import 'package:frontend_appdev/themes/Fonts.dart';
 
 // Import specific location pages
 import 'package:frontend_appdev/pages/Rentals/RentalLocations/bulua.dart';
@@ -88,8 +90,8 @@ class _LocationSearchPageState extends State<LocationSearchPage> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: Color(0xFF00B2FF)),
-        title: Text("Search Rentals"),
-        backgroundColor: Color(0xFF00B2FF),
+        title: Text("Search Rentals", style: TextStyle(fontFamily: AppFonts.primaryFont,),),
+        backgroundColor: AppColors.primary,
         elevation: 0,
       ),
       backgroundColor: Colors.white,
@@ -105,9 +107,9 @@ class _LocationSearchPageState extends State<LocationSearchPage> {
                 child: TextField(
                   controller: _controller,
                   decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.search, color: Color(0xFF00B2FF)),
+                    prefixIcon: Icon(Icons.search, color: AppColors.primary),
                     hintText: 'Search location...',
-                    hintStyle: TextStyle(color: Color(0xFF00B2FF)),
+                    hintStyle: TextStyle(color: AppColors.primary, fontFamily: AppFonts.primaryFont,),
                     filled: true,
                     fillColor: Colors.white,
                     contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 0),
@@ -131,7 +133,7 @@ class _LocationSearchPageState extends State<LocationSearchPage> {
                     return ListTile(
                       title: Text(
                         location,
-                        style: TextStyle(color: Color(0xFF00B2FF)),
+                        style: TextStyle(color: AppColors.primary),
                       ),
                       onTap: () => _navigateToLocation(location),
                     );
@@ -143,6 +145,7 @@ class _LocationSearchPageState extends State<LocationSearchPage> {
                     style: TextStyle(
                       color: Colors.grey,
                       fontSize: 18,
+                      fontFamily: AppFonts.primaryFont,
                     ),
                   ),
                 ),
@@ -156,7 +159,7 @@ class _LocationSearchPageState extends State<LocationSearchPage> {
                 child: ElevatedButton(
                   onPressed: _onSearchPressed,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF00B2FF),
+                    backgroundColor: AppColors.primary,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -164,7 +167,7 @@ class _LocationSearchPageState extends State<LocationSearchPage> {
                   ),
                   child: Text(
                     'Search for rentals',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.white, fontFamily: AppFonts.primaryFont,),
                   ),
                 ),
               ),
@@ -187,12 +190,12 @@ class LocationResultPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('$location Rentals'),
-        backgroundColor: Color(0xFF00B2FF),
+        backgroundColor: AppColors.primary,
       ),
       body: Center(
         child: Text(
           'Showing rentals for $location',
-          style: TextStyle(fontSize: 20),
+          style: TextStyle(fontSize: 20, fontFamily: AppFonts.primaryFont,),
         ),
       ),
     );

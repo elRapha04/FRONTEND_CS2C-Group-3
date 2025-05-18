@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_appdev/themes/Colors.dart';
+import 'package:frontend_appdev/themes/Fonts.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert'; // For jsonEncode
 
@@ -76,13 +78,7 @@ class _LoginState extends State<Login> {
         body: Container(
           width: screenWidth,
           height: screenHeight,
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Colors.white, Colors.blue],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-          ),
+          color: AppColors.primary,
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -94,7 +90,7 @@ class _LoginState extends State<Login> {
                     fontSize: screenWidth * 0.08,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
-                    fontFamily: 'JosefinSlab',
+                    fontFamily: AppFonts.primaryFont,
                   ),
                 ),
                 SizedBox(height: screenHeight * 0.05),
@@ -113,20 +109,21 @@ class _LoginState extends State<Login> {
                             filled: true,
                             fillColor: Colors.white,
                             hintText: 'Email',
+                            hintStyle: TextStyle(fontFamily: AppFonts.primaryFont, fontWeight: FontWeight.bold),
                             prefixIcon: const Icon(
                               Icons.email,
-                              color: Color(0xFF00B2FF),
+                              color: AppColors.primary,
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
                               borderSide: const BorderSide(
-                                color: Color(0xFF00B2FF),
+                                color: AppColors.primary,
                               ),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
                               borderSide: const BorderSide(
-                                color: Color(0xFF00B2FF),
+                                color: AppColors.primary,
                               ),
                             ),
                           ),
@@ -151,16 +148,17 @@ class _LoginState extends State<Login> {
                             filled: true,
                             fillColor: Colors.white,
                             hintText: 'Password',
+                            hintStyle: TextStyle(fontFamily: AppFonts.primaryFont, fontWeight: FontWeight.bold),
                             prefixIcon: const Icon(
                               Icons.lock,
-                              color: Color(0xFF00B2FF),
+                              color: AppColors.primary,
                             ),
                             suffixIcon: IconButton(
                               icon: Icon(
                                 _isPasswordVisible
                                     ? Icons.visibility
                                     : Icons.visibility_off,
-                                color: const Color(0xFF00B2FF),
+                                color: AppColors.primary,
                               ),
                               onPressed: () {
                                 setState(() {
@@ -171,13 +169,13 @@ class _LoginState extends State<Login> {
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
                               borderSide: const BorderSide(
-                                color: Color(0xFF00B2FF),
+                                color: AppColors.primary,
                               ),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
                               borderSide: const BorderSide(
-                                color: Color(0xFF00B2FF),
+                                color: AppColors.primary,
                               ),
                             ),
                           ),
@@ -197,7 +195,7 @@ class _LoginState extends State<Login> {
                           height: screenHeight * 0.06,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFF00B2FF),
+                              backgroundColor: AppColors.primary,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),
@@ -209,6 +207,7 @@ class _LoginState extends State<Login> {
                                 color: Colors.white,
                                 fontSize: screenWidth * 0.05,
                                 fontWeight: FontWeight.w400,
+                                fontFamily: AppFonts.primaryFont,
                               ),
                             ),
                           ),
@@ -237,14 +236,14 @@ class _LoginState extends State<Login> {
                                     fontSize: screenWidth * 0.04,
                                     fontWeight: FontWeight.w400,
                                     color: Colors.white,
-                                    fontFamily: 'JosefinSlab',
+                                    fontFamily: AppFonts.primaryFont,
                                   ),
                                 ),
                               ),
                               const Expanded(
                                 child: Divider(
                                   thickness: 1,
-                                  color: Colors.white,
+                                  color: AppColors.secondary,
                                 ),
                               ),
                             ],
@@ -266,6 +265,7 @@ class _LoginState extends State<Login> {
                       fontSize: screenWidth * 0.04,
                       fontWeight: FontWeight.w400,
                       color: Colors.white,
+                      fontFamily: AppFonts.primaryFont,
                     ),
                   ),
                 ),
