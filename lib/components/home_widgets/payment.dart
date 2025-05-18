@@ -40,7 +40,6 @@ class _PaymentCardState extends State<PaymentCard> {
             style: TextStyle(
                 color: Colors.white, fontSize: 26, fontWeight: FontWeight.bold, fontFamily: AppFonts.primaryFont,),
           ),
-          Divider(color: Colors.white),
         ],
       ),
     );

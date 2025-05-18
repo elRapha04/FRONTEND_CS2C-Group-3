@@ -82,7 +82,7 @@ class SeeMoreButton extends StatelessWidget {
                   fontFamily: AppFonts.primaryFont,
                   color: Colors.white,
                   fontSize: 24,
-                  fontWeight: FontWeight.w400),
+                  fontWeight: FontWeight.bold),
             )));
   }
 }
@@ -115,8 +115,8 @@ class LogOutButtons extends StatelessWidget {
               style: TextStyle(
                   fontFamily: AppFonts.primaryFont,
                   color: AppColors.primary,
-                  fontSize: 24,
-                  fontWeight: FontWeight.w400),
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold),
             )));
   }
 }
@@ -148,7 +148,7 @@ class MyButtons extends StatelessWidget {
         textAlign: TextAlign.center,
         style: TextStyle(
           color: Colors.white,
-          fontSize: 18,
+          fontSize: 16,
           fontFamily: AppFonts.primaryFont,
         ),
       ),

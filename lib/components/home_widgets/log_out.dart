@@ -30,7 +30,7 @@ class LogOut extends StatelessWidget {
               Text(
                 "You are about to logout.\nAre you sure this is what you want to do?",
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 24, fontFamily: AppFonts.primaryFont,),
+                style: TextStyle(fontSize: 24, fontFamily: AppFonts.primaryFont, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 24),
               Row(

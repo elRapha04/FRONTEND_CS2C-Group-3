@@ -39,6 +39,7 @@ class home_page extends StatelessWidget {
             children: [
               PaymentCard(),
               featured(),
+              SizedBox(height: 100,),
             ],
           ),
         ),
