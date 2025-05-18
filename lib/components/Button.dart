@@ -81,7 +81,7 @@ class SeeMoreButton extends StatelessWidget {
               style: TextStyle(
                   fontFamily: AppFonts.primaryFont,
                   color: Colors.white,
-                  fontSize: 24,
+                  fontSize: 19,
                   fontWeight: FontWeight.bold),
             )));
   }
