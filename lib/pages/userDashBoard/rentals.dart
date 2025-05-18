@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:frontend_appdev/themes/Colors.dart';
 import 'package:frontend_appdev/themes/Fonts.dart';
 import 'package:frontend_appdev/pages/Rentals/booking.dart';
+import '../../services/api_service.dart';
 
 class Rental {
   final String name;

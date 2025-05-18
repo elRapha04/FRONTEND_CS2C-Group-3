@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:frontend_appdev/themes/Colors.dart';
 import 'package:frontend_appdev/themes/Fonts.dart';
 import 'package:frontend_appdev/components/Button.dart';
+import '../../services/api_service.dart';
 
 class Profile2 extends StatefulWidget {
   const Profile2({super.key});

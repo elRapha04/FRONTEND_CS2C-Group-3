@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert'; // For jsonEncode
 import 'package:frontend_appdev/components/text_field.dart';
 import 'package:frontend_appdev/components/Button.dart';
+import '../services/api_service.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});

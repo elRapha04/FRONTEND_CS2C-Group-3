@@ -4,6 +4,8 @@ import 'package:frontend_appdev/pages/userDashBoard/home_page.dart';
 import 'pages/LandingPage.dart';
 import 'pages/Sign_up.dart';
 import 'package:frontend_appdev/pages/Admin/ownerPage.dart';
+import 'services/api_service.dart';
+
 void main() => runApp(MaterialApp(
   debugShowCheckedModeBanner: false,
   initialRoute: '/home_page',

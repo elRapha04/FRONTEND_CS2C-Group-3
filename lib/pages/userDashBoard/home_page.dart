@@ -4,6 +4,7 @@ import 'package:frontend_appdev/components/home_widgets/payment.dart';
 import 'package:frontend_appdev/components/home_widgets/featured.dart';
 import 'package:frontend_appdev/components/home_widgets/NavBar.dart';
 import 'package:frontend_appdev/components/home_widgets/search.dart';
+import '../../services/api_service.dart';
 
 class home_page extends StatelessWidget {
   const home_page({Key? key}) : super(key: key);
