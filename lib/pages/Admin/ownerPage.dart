@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:frontend_appdev/themes/Colors.dart';
 import 'package:frontend_appdev/themes/Fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../../services/api_service.dart';
 
 void main() {
   runApp(MaterialApp(
