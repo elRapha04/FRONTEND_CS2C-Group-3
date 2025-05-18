@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_appdev/pages/Rentals/booking.dart';
 
 class Rental {
   final String name;
@@ -32,7 +33,7 @@ class RentalCarouselPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Featured Rentals', style: TextStyle(color: Color(0xFF00B2FF), fontFamily: 'JosefinSlab')),
+        title: Text('Featured Rentals', style: TextStyle(color: Color(0xFF00B2FF), fontFamily: 'Montserrat')),
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(color: Color(0xFF00B2FF)),
       ),
@@ -65,7 +66,7 @@ class RentalCarouselPage extends StatelessWidget {
                   fontSize: 20,
                   color: Color(0xFF00B2FF),
                   fontWeight: FontWeight.bold,
-                  fontFamily: 'JosefinSlab',
+                  fontFamily: 'Montserrat',
                 ),
               ),
             ),
@@ -133,7 +134,7 @@ class RentalCarouselPage extends StatelessWidget {
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Color(0xFF00B2FF),
-                    fontFamily: 'JosefinSlab',
+                    fontFamily: 'Montserrat',
                   ),
                 ),
                 SizedBox(height: 4),
@@ -142,7 +143,7 @@ class RentalCarouselPage extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 12,
                     color: Color(0xFF00B2FF),
-                    fontFamily: 'JosefinSlab',
+                    fontFamily: 'Montserrat',
                   ),
                 ),
               ],
@@ -168,14 +169,14 @@ class RentalInfoScreen extends StatelessWidget {
       appBar: AppBar(
         iconTheme: IconThemeData(color: lightBlue),
         backgroundColor: Colors.white,
-        title: Text(name, style: TextStyle(color: lightBlue, fontFamily: 'JosefinSlab')),
+        title: Text(name, style: TextStyle(color: lightBlue, fontFamily: 'Montserrat')),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
             Container(
-              height: 200,
+              height: 400,
               width: double.infinity,
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.black),
@@ -184,26 +185,42 @@ class RentalInfoScreen extends StatelessWidget {
               child: Center(child: Text("img", style: TextStyle(fontFamily: 'JosefinSlab'))),
             ),
             SizedBox(height: 24),
-            Text(
-              '₱ 999.00',
-              style: TextStyle(
-                fontFamily: 'JosefinSlab',
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color: lightBlue,
-              ),
+            Row(
+              children: [
+                Text(
+                  '₱ 999.00',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    fontFamily: 'Montserrat',
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    color: lightBlue,
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Text(name, style: TextStyle(fontSize: 20, color: lightBlue),),
+              ],
             ),
             SizedBox(height: 12),
-            Text(
-              description,
-              style: TextStyle(fontFamily: 'JosefinSlab', fontSize: 16, color: lightBlue),
+            Row(
+              children: [
+                Text(
+                  description,
+                  style: TextStyle(fontFamily: 'Montserrat', fontSize: 16, color: lightBlue, fontWeight: FontWeight.bold),
+                ),
+              ],
             ),
             Spacer(),
             SizedBox(
               width: double.infinity,
               height: 45,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => BookRentalScreen()));
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: lightBlue,
                   shape: RoundedRectangleBorder(
@@ -213,7 +230,7 @@ class RentalInfoScreen extends StatelessWidget {
                 child: Text(
                   'Continue',
                   style: TextStyle(
-                    fontFamily: 'JosefinSlab',
+                    fontFamily: 'Montserrat',
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,

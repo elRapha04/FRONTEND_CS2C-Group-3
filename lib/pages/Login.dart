@@ -49,7 +49,7 @@ class _LoginState extends State<Login> {
           if (!context.mounted) return; // Prevent navigation if widget is unmounted
 
         // Navigate to the home screen or dashboard
-          Navigator.pushReplacementNamed(context, '/home');
+          Navigator.pushReplacementNamed(context, '/home_page');
         } else {
           // Login failed
           final responseData = jsonDecode(response.body);
