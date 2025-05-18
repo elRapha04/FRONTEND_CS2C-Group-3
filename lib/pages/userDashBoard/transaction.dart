@@ -169,7 +169,12 @@ class _TransactionScreenState extends State<TransactionScreen> {
                 style: TextStyle(color: AppColors.primary, fontSize: 25, fontFamily: AppFonts.primaryFont))
           ],
         ),
-        trailing: Icon(Icons.close, color: AppColors.primary, size: 25,),
+        trailing: IconButton(
+          onPressed:(){
+            print("You click the delete button");
+          },
+          icon: Icon(Icons.close, color: AppColors.primary, size: 25,),
+        ),
       ),
       Divider(
         thickness: 1,
@@ -188,7 +193,11 @@ class _TransactionScreenState extends State<TransactionScreen> {
                 style: TextStyle(color: AppColors.primary, fontSize: 25, fontFamily: AppFonts.primaryFont))
           ],
         ),
-        trailing: Icon(Icons.close, color: AppColors.primary, size: 25,),
+        trailing: IconButton(
+          onPressed: () {
+            print("You click the delete button");
+          },
+          icon: Icon(Icons.close, color: AppColors.primary, size: 25,),),
       ),
       Divider(
         thickness: 1,
