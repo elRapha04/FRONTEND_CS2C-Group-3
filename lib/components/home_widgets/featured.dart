@@ -24,7 +24,7 @@ class featured extends StatelessWidget {
               "Featured",
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 40,
+                fontSize: 35,
                 fontWeight: FontWeight.bold,
                 color: AppColors.primary,
                 fontFamily: AppFonts.primaryFont,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
 
 class AppFonts{
-  static const String primaryFont = 'Montserrat';
+  static const String primaryFont = 'OpenSans';
 }

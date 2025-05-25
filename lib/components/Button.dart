@@ -61,29 +61,47 @@ class ButtonSignUpAccount extends StatelessWidget {
 
 class SeeMoreButton extends StatelessWidget {
   const SeeMoreButton({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-        width: double.infinity,
-        height: 50,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: ElevatedButton(
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final isLargeScreen = constraints.maxWidth > 600;
+
+        return Container(
+          width: double.infinity,
+          height: isLargeScreen ? 55 : 50,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+          ),
+          child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: AppColors.primary,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
+              ),
             ),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => RentalCarouselPage()));
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => RentalCarouselPage()
+                ),
+              );
             },
             child: Text(
               'See more',
               style: TextStyle(
-                  fontFamily: AppFonts.primaryFont,
-                  color: Colors.white,
-                  fontSize: 17,
-                  fontWeight: FontWeight.bold),
-            )));
+                fontFamily: AppFonts.primaryFont,
+                color: Colors.white,
+                fontSize: isLargeScreen ? 20 : 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        );
+      },
+    );
   }
 }
 

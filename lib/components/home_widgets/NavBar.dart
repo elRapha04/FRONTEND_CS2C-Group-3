@@ -29,12 +29,12 @@ class NavBar extends StatelessWidget {
                 SizedBox(height: 10),
                 Text(
                   "Your Name",
-                  style: TextStyle(color: Colors.white, fontSize: 20, fontFamily: AppFonts.primaryFont,),
+                  style: TextStyle(color: Colors.white, fontSize: 20, fontFamily: AppFonts.primaryFont, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 5),
                 Text(
                   "your.email@example.com",
-                  style: TextStyle(color: Colors.white70, fontSize: 20, fontFamily: AppFonts.primaryFont,),
+                  style: TextStyle(color: Colors.white70, fontSize: 20, fontFamily: AppFonts.primaryFont,fontWeight: FontWeight.bold),
                 ),
               ],
             ),
